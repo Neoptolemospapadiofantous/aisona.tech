@@ -206,7 +206,7 @@ const Contact = () => {
             </span>
             <br />
             <span className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
-              We're Here to Help
+              We&apos;re Here to Help
             </span>
           </h1>
           

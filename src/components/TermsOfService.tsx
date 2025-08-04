@@ -12,10 +12,10 @@ const TermsOfService = () => {
       content: (
         <div className="space-y-4">
           <p>
-            By accessing or using aisona.tech's AI-powered business automation services ("Services"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, you may not use our Services.
+            By accessing or using aisona.tech&apos;s AI-powered business automation services (&quot;Services&quot;), you agree to be bound by these Terms of Service (&quot;Terms&quot;). If you do not agree to these Terms, you may not use our Services.
           </p>
           <p>
-            These Terms constitute a legally binding agreement between you and aisona.tech ("Company," "we," "our," or "us"). Your use of our Services signifies your acceptance of these Terms.
+            These Terms constitute a legally binding agreement between you and aisona.tech (&quot;Company,&quot; &quot;we,&quot; &quot;our,&quot; or &quot;us&quot;). Your use of our Services signifies your acceptance of these Terms.
           </p>
         </div>
       )
@@ -189,7 +189,7 @@ const TermsOfService = () => {
           <div>
             <h4 className="text-lg font-semibold text-black mb-3">Disclaimer of Warranties</h4>
             <p className="text-gray-600 mb-4">
-              THE BUSINESS AUTOMATION SERVICES ARE PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, 
+              THE BUSINESS AUTOMATION SERVICES ARE PROVIDED &quot;AS IS&quot; AND &quot;AS AVAILABLE&quot; WITHOUT WARRANTIES OF ANY KIND, 
               EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF 
               MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. WE DO NOT WARRANT 
               UNINTERRUPTED SERVICE OR ERROR-FREE OPERATIONS.
