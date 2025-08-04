@@ -18,7 +18,7 @@ import {
 
 const Contact = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [hoveredMethod, setHoveredMethod] = useState(null);
+  const [hoveredMethod, setHoveredMethod] = useState<number | null>(null); // Fixed: Added proper typing
   const [showToast, setShowToast] = useState(false);
   const [particlesReady, setParticlesReady] = useState(false);
 
