@@ -12,7 +12,7 @@ const PrivacyPolicy = () => {
       content: (
         <div className="space-y-4">
           <p>
-            aisona.tech ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our AI-powered chat agent services, website, and related services (collectively, the "Services").
+            aisona.tech (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our AI-powered chat agent services, website, and related services (collectively, the &quot;Services&quot;).
           </p>
           <p>
             By using our Services, you agree to the collection and use of information in accordance with this Privacy Policy.

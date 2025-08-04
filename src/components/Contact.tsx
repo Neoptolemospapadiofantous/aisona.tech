@@ -351,7 +351,7 @@ const Contact = () => {
                 Ready to Get Started?
               </h3>
               <p className="text-gray-600 mb-8 max-w-2xl mx-auto text-lg transition-colors duration-300 group-hover:text-gray-700">
-                Join over 1,000+ businesses already using our AI solutions. Let's discuss how we can help transform your operations and customer experience.
+                Join over 1,000+ businesses already using our AI solutions. Let&apos;s discuss how we can help transform your operations and customer experience.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">

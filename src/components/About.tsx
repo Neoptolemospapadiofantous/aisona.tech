@@ -16,7 +16,6 @@ import {
   X,
   ArrowRight,
   BarChart3,
-  Sparkles,
   HelpCircle
 } from 'lucide-react';
 
@@ -370,7 +369,7 @@ const About: React.FC = () => {
               </span>
             </h2>
             <p className="text-xl text-gray-600 leading-relaxed mb-12 max-w-3xl mx-auto">
-              To empower businesses with AI solutions that don't just automate tasks, but truly understand 
+              To empower businesses with AI solutions that don&apos;t just automate tasks, but truly understand 
               and enhance customer relationships. We believe AI should amplify human capabilities, 
               not replace human connection.
             </p>
@@ -571,7 +570,7 @@ const About: React.FC = () => {
                 </h2>
                 <p className="text-gray-600 mb-8 max-w-2xl mx-auto text-lg transition-colors duration-300 group-hover:text-gray-700">
                   Join over 1,000+ businesses already using our AI solutions to improve customer satisfaction, 
-                  reduce costs, and increase revenue. Let's discuss how we can help your business.
+                  reduce costs, and increase revenue. Let&apos;s discuss how we can help your business.
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">

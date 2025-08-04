@@ -253,7 +253,7 @@ const FAQ = () => {
         <div className={`text-center mt-16 transition-all duration-1000 delay-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="bg-white border border-blue-200 rounded-xl shadow-lg p-8 hover:shadow-xl hover:scale-105 transition-all duration-300">
             <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
-              Let's Talk About Your Business Project
+              Let&apos;s Talk About Your Business Project
             </h3>
             <p className="text-black mb-8 max-w-2xl mx-auto">
               Our AI experts are ready to discuss your specific business automation needs, 
