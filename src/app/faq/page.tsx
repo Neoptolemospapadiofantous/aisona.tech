@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import FAQ from '@/components/FAQ'
+import FAQ from '@/app/components/FAQ'
 
 export const metadata: Metadata = {
   title: 'FAQ - AI Business Automation Questions & Answers',

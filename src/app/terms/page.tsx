@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import TermsOfService from '@/components/TermsOfService'
+import TermsOfService from '@/app/components/TermsOfService'
 
 export const metadata: Metadata = {
   title: 'Terms of Service - AI Business Automation Legal Terms',

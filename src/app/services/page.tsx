@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import Services from '@/components/Services'
+import Services from '@/app/components/Services'
 
 export const metadata: Metadata = {
   title: 'AI Services - Customer Support, Lead Generation & Smart Ticketing',

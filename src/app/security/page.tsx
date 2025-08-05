@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import SecurityPolicy from '@/components/SecurityPolicy'
+import SecurityPolicy from '@/app/components/SecurityPolicy'
 
 export const metadata: Metadata = {
   title: 'Security Policy - Enterprise-Grade Data Protection',

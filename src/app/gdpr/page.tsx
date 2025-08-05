@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import GDPRCompliance from '@/components/GDPRCompliance'
+import GDPRCompliance from '@/app/components/GDPRCompliance'
 
 export const metadata: Metadata = {
   title: 'GDPR Compliance - Data Protection Rights & Procedures',

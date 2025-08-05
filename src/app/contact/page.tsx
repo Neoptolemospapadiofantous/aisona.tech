@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import Contact from '@/components/Contact'
+import Contact from '@/app/components/Contact'
 
 export const metadata: Metadata = {
   title: 'Contact aisona.tech - AI Business Automation Consultation',

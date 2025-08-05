@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import Script from 'next/script'
 import './globals.css'
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
+import Header from '@/app/components/Header'
+import Footer from '@/app/components/Footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -70,6 +71,32 @@ export default function RootLayout({
           <main>{children}</main>
           <Footer />
         </div>
+        
+        {/* Voiceflow Chat Widget */}
+        <Script
+          id="voiceflow-widget"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(d, t) {
+                  var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+                  v.onload = function() {
+                    window.voiceflow.chat.load({
+                      verify: { projectID: '688e8199fc766ed341f5b6a6' },
+                      url: 'https://general-runtime.voiceflow.com',
+                      versionID: 'production',
+                      voice: {
+                        url: "https://runtime-api.voiceflow.com"
+                      }
+                    });
+                  }
+                  v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; 
+                  v.type = "text/javascript"; 
+                  s.parentNode.insertBefore(v, s);
+              })(document, 'script');
+            `,
+          }}
+        />
       </body>
     </html>
   )

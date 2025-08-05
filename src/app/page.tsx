@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
-import Hero from '@/components/Hero'
-import Services from '@/components/Services'
-import FAQ from '@/components/FAQ'
+import Hero from '@/app/components/Hero'
+import Services from '@/app/components/Services'
+import FAQ from '@/app/components/FAQ'
 
 export const metadata: Metadata = {
   title: 'AI Business Automation Solutions - Customer Support & Lead Generation',
