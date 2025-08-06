@@ -1,4 +1,4 @@
-import { Cookie, Settings, BarChart3, Target, MessageSquare, Shield } from 'lucide-react';
+import { Cookie, BarChart3, Target, MessageSquare, Shield } from 'lucide-react';
 
 const CookiePolicy = () => {
   const lastUpdated = "December 1, 2024";
@@ -129,7 +129,7 @@ const CookiePolicy = () => {
                 They help us provide a better experience by remembering your preferences and 
                 understanding how you use our AI services.
               </p>
-              <p className="text-blue-700 text-sm leading-relaxed">
+                              <p className="text-blue-700 text-sm leading-relaxed">
                 <strong>Your Control:</strong> You can control cookie settings through our cookie banner 
                 or your browser settings. Essential cookies are required for basic functionality.
               </p>
@@ -195,7 +195,7 @@ const CookiePolicy = () => {
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-black mb-6">Third-Party Services</h2>
           <p className="text-gray-600 mb-6">
-            We use third-party services that may set their own cookies. Here's information about these services:
+            We use third-party services that may set their own cookies. Here&apos;s information about these services:
           </p>
           
           <div className="space-y-4">
@@ -237,7 +237,7 @@ const CookiePolicy = () => {
             <div className="bg-white border border-gray-200 rounded-lg p-6">
               <h3 className="font-semibold text-black mb-4">Cookie Banner</h3>
               <p className="text-gray-600 text-sm mb-4">
-                When you first visit our website, you'll see our cookie banner where you can:
+                When you first visit our website, you&apos;ll see our cookie banner where you can:
               </p>
               <ul className="space-y-2 text-sm text-gray-600">
                 <li>• Accept all cookies</li>
