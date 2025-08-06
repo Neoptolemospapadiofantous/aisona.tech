@@ -121,7 +121,7 @@ const CookiePolicy: React.FC = () => {
               <h3 className="font-semibold text-gray-900 mb-2">What Are Cookies?</h3>
               <p className="text-gray-700 text-sm leading-relaxed mb-4">
                 Cookies are small text files stored on your device when you visit our website. 
-                We use very few cookies - mainly to remember if you've accepted this cookie notice 
+                We use very few cookies - mainly to remember if you&apos;ve accepted this cookie notice 
                 and to make our chat widget work properly.
               </p>
               <p className="text-gray-700 text-sm leading-relaxed">
