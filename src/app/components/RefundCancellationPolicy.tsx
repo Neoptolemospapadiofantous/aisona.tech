@@ -1,5 +1,5 @@
 import React from 'react';
-import { RefreshCw, Calendar, AlertCircle, XCircle, MessageSquare, Users, ExternalLink } from 'lucide-react';
+import { RefreshCw, Calendar, AlertCircle, XCircle, MessageSquare } from 'lucide-react';
 
 // Type definitions
 type ScenarioStatus = 'no-refund' | 'case-by-case';
@@ -196,7 +196,7 @@ const RefundCancellationPolicy: React.FC = () => {
           <AlertBox type="info" title="Cancellation Process" className="mb-8">
             <p className="text-sm leading-relaxed">
               Currently, all subscription cancellations are processed through our customer support team 
-              to ensure proper account handling and data preservation. While we're working on self-service 
+              to ensure proper account handling and data preservation. While we&apos;re working on self-service 
               options, our support team provides immediate assistance and confirmation.
             </p>
           </AlertBox>
