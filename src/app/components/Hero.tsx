@@ -1,12 +1,17 @@
 'use client'
 
 import { useState, useEffect } from 'react';
-import { ArrowRight, Zap, Brain, MessageSquare, BarChart3 } from 'lucide-react';
+import { ArrowRight, Zap, Brain, MessageSquare, BarChart3, X, HelpCircle, Sparkles } from 'lucide-react';
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [currentDemo, setCurrentDemo] = useState(0);
   const [particlesReady, setParticlesReady] = useState(false);
+  const [showToast, setShowToast] = useState(false);
+  const [progress, setProgress] = useState(100);
+  const [isClosing, setIsClosing] = useState(false);
+
+  const TOAST_DURATION = 6000; // 6 seconds
   
   // Pre-defined particle data to avoid hydration mismatches
   const particleData = [
@@ -44,7 +49,6 @@ const Hero = () => {
 
   useEffect(() => {
     setIsVisible(true);
-    // Set particles ready after component mounts to avoid hydration issues
     setParticlesReady(true);
     
     const interval = setInterval(() => {
@@ -53,56 +57,85 @@ const Hero = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const demoChats = [
-    {
-      id: 1,
-      messages: [
-        { type: 'user', text: 'Our Q3 revenue was $2.3M but customer churn increased 15%. What should we focus on?' },
-        { type: 'ai', text: 'Based on the revenue growth vs. churn trend, I recommend prioritizing customer success initiatives. The data suggests you\'re acquiring customers faster than you\'re losing them, but improving retention could boost your growth rate by an estimated 23-30%.' },
-        { type: 'user', text: 'What specific actions would have the biggest impact?' },
-        { type: 'ai', text: 'Focus on accounts with $50K+ ARR first - they represent 60% of your churn risk but only 12% of your customer base. I can create a retention playbook for your CS team.' },
-        { type: 'user', text: 'Can you draft that playbook for me?' },
-        { type: 'ai', text: 'Absolutely! I\'ll create a comprehensive retention playbook targeting high-value accounts. It will include early warning indicators, intervention strategies, and success metrics to help your team proactively address churn risks.' }
-      ],
-      position: { top: '12%', left: '5%' }
-    },
-    {
-      id: 2,
-      messages: [
-        { type: 'user', text: 'I need to write a follow-up email to a client who went silent after our pricing discussion' },
-        { type: 'ai', text: 'I\'ll help you craft a thoughtful follow-up. What was their main concern during the pricing discussion?' },
-        { type: 'user', text: 'They felt our enterprise plan was too expensive compared to competitors' },
-        { type: 'ai', text: 'Here\'s a strategic approach: acknowledge their concern, provide value-focused context, and offer a consultation to discuss ROI. Would you like me to draft something that addresses their price sensitivity while reinforcing your unique value proposition?' },
-        { type: 'user', text: 'Yes, please draft that email' },
-        { type: 'ai', text: 'Perfect! I\'ll create an email that opens with empathy, presents a value-based framework for comparison, and includes a soft call-to-action for a ROI discussion. This approach often re-engages price-sensitive prospects by shifting focus from cost to value.' }
-      ],
-      position: { top: '35%', right: '2%' }
-    },
-    {
-      id: 3,
-      messages: [
-        { type: 'user', text: 'This React component is causing memory leaks. Can you help debug it?' },
-        { type: 'ai', text: 'I\'d be happy to help! Can you share the component code? Memory leaks in React usually stem from uncleared intervals, event listeners, or useEffect cleanup issues.' },
-        { type: 'user', text: 'It\'s a dashboard component with real-time data updates every 2 seconds' },
-        { type: 'ai', text: 'Ah, likely an interval or WebSocket connection that\'s not being cleaned up when the component unmounts. Make sure you\'re returning a cleanup function from your useEffect that clears the interval or closes the connection.' },
-        { type: 'user', text: 'Here\'s the component code...' },
-        { type: 'ai', text: 'I can see the issue! You\'re missing the cleanup function in your useEffect. Add a return statement that calls clearInterval(intervalId) to prevent the memory leak. I\'ll also suggest some optimization patterns for better performance.' }
-      ],
-      position: { bottom: '20%', left: '8%' }
-    },
-    {
-      id: 4,
-      messages: [
-        { type: 'user', text: 'Can you analyze the sentiment of our latest product launch feedback?' },
-        { type: 'ai', text: 'I\'ve processed 847 customer responses. Overall sentiment is 72% positive, 18% neutral, 10% negative. The main positive themes are "intuitive interface" and "faster workflow". Concerns center around "learning curve" and "missing integrations".' },
-        { type: 'user', text: 'What should our product team prioritize?' },
-        { type: 'ai', text: 'I recommend creating onboarding tutorials to address the learning curve (mentioned in 65% of negative feedback) and prioritizing Slack/Teams integrations (requested by 38% of users). These changes could potentially shift sentiment from 72% to 85% positive.' },
-        { type: 'user', text: 'Can you create a detailed action plan?' },
-        { type: 'ai', text: 'Certainly! I\'ll create a prioritized roadmap with timeline estimates, resource requirements, and expected impact metrics. This will help your product team focus on the highest-value improvements first.' }
-      ],
-      position: { top: '50%', right: '8%' }
+  useEffect(() => {
+    if (showToast && !isClosing) {
+      const interval = setInterval(() => {
+        setProgress((prev) => {
+          if (prev <= 0) {
+            handleClose();
+            return 0;
+          }
+          return prev - (100 / (TOAST_DURATION / 100));
+        });
+      }, 100);
+
+      return () => clearInterval(interval);
     }
-  ];
+  }, [showToast, isClosing]);
+
+  const handleStartTrial = () => {
+    setShowToast(true);
+    setProgress(100);
+    setIsClosing(false);
+  };
+
+  const handleClose = () => {
+    setIsClosing(true);
+    setTimeout(() => {
+      setShowToast(false);
+      setIsClosing(false);
+      setProgress(100);
+    }, 300);
+  };
+
+  const handleToastClick = () => {
+    // In a real app, this would trigger the chat widget
+    console.log('Opening chat widget...');
+    handleClose();
+  };
+
+const demoChats = [
+  {
+    id: 1,
+    messages: [
+      { type: 'user', text: 'Hi, I need help with my order status' },
+      { type: 'ai', text: 'I\'d be happy to help! Could you provide your order number?' },
+      { type: 'user', text: 'It\'s #ORD-12345' },
+      { type: 'ai', text: 'Perfect! Your order shipped yesterday and arrives Friday. Here\'s your tracking: track.example.com/12345' }
+    ],
+    position: { top: '12%', left: '5%' }
+  },
+  {
+    id: 2,
+    messages: [
+      { type: 'user', text: 'New lead: Sarah from TechCorp inquired about enterprise plan' },
+      { type: 'ai', text: 'Great! I\'ve scored this as high-priority. TechCorp fits our ideal customer profile.' },
+      { type: 'user', text: 'What\'s next?' },
+      { type: 'ai', text: 'Demo scheduled for Tuesday. I\'ve sent a personalized follow-up highlighting relevant features.' }
+    ],
+    position: { top: '35%', right: '2%' }
+  },
+  {
+    id: 3,
+    messages: [
+      { type: 'user', text: 'I have a billing question about my account' },
+      { type: 'ai', text: 'I can help with that. What\'s your billing question?' },
+      { type: 'user', text: 'Why was I charged twice?' },
+      { type: 'ai', text: 'I see the duplicate charge. I\'ve processed a full refund - it\'ll appear in 3-5 days.' }
+    ],
+    position: { bottom: '20%', left: '8%' }
+  },
+  {
+    id: 4,
+    messages: [
+      { type: 'user', text: 'Can you process this invoice approval?' },
+      { type: 'ai', text: 'Absolutely! I\'ve reviewed the $2,400 invoice against our rules.' },
+      { type: 'user', text: 'Status?' },
+      { type: 'ai', text: 'Approved and routed to Finance. Payment scheduled for Friday per 30-day terms.' }
+    ],
+    position: { top: '50%', right: '8%' }
+  }
+];
 
   const features = [
     { icon: Brain, text: 'Advanced AI Models' },
@@ -111,58 +144,102 @@ const Hero = () => {
   ];
 
   const stats = [
-    { number: '10K+', label: 'API Calls Daily' },
+    { number: '5+', label: 'Companies Served' },
     { number: '99.9%', label: 'Uptime SLA' },
-    { number: '5', label: 'Countries Served' },
-    { number: '50ms', label: 'Avg Response Time' }
+    { number: '67%', label: 'Cost Reduction' },
+    { number: '5 Days', label: 'Implementation' }
   ];
 
   return (
     <>
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white py-20">
         {/* Background Elements */}
-        <div className="absolute inset-0">
-          {/* Floating Orbs */}
-          <div 
-            className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-blue-100 to-blue-200 rounded-full opacity-30 animate-pulse"
-          />
-          <div 
-            className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-blue-200 to-blue-300 rounded-full opacity-30 animate-pulse"
-            style={{ animationDelay: '2s' }}
-          />
-          <div 
-            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-gray-100 to-blue-100 rounded-full opacity-20 animate-pulse"
-            style={{ animationDelay: '4s' }}
-          />
-
-          {/* Grid Background */}
-          <div 
-            className="absolute inset-0 opacity-10"
-            style={{
-              backgroundImage: `
-                linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px)
-              `,
-              backgroundSize: '50px 50px'
-            }}
-          />
-
-          {/* Particles - Only render after hydration */}
-          {particlesReady && particleData.map((particle, i) => (
-            <div
-              key={i}
-              className="absolute w-1 h-1 bg-blue-400 rounded-full opacity-70 animate-bounce"
-              style={{
-                left: `${particle.left}%`,
-                top: `${particle.top}%`,
-                animationDelay: `${particle.delay}s`,
-                animationDuration: `${particle.duration}s`
-              }}
-            />
-          ))}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-20 right-20 w-72 h-72 bg-blue-50 rounded-full opacity-60 blur-3xl"></div>
+          <div className="absolute bottom-20 left-20 w-72 h-72 bg-blue-50 rounded-full opacity-40 blur-3xl"></div>
         </div>
 
-        {/* Fixed Header/Footer Demo Chat Windows */}
+        {/* Grid Background */}
+        <div 
+          className="absolute inset-0 opacity-5"
+          style={{
+            backgroundImage: `
+              linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px)
+            `,
+            backgroundSize: '50px 50px'
+          }}
+        />
+
+        {/* Particles - Only render after hydration */}
+        {particlesReady && particleData.map((particle, i) => (
+          <div
+            key={i}
+            className="absolute w-1 h-1 bg-blue-400 rounded-full opacity-70 animate-bounce"
+            style={{
+              left: `${particle.left}%`,
+              top: `${particle.top}%`,
+              animationDelay: `${particle.delay}s`,
+              animationDuration: `${particle.duration}s`
+            }}
+          />
+        ))}
+
+        {/* Toast Notification */}
+      {showToast && (
+        <div 
+          className={`fixed bottom-6 left-6 right-6 md:left-6 md:right-auto md:max-w-sm z-50 transition-all duration-500 ease-out transform ${
+            isClosing 
+              ? 'translate-y-full opacity-0 scale-95' 
+              : 'translate-y-0 opacity-100 scale-100'
+          }`}
+          role="alert"
+          aria-live="polite"
+        >
+          <div 
+            className="bg-white backdrop-blur-sm border border-blue-200 rounded-2xl shadow-2xl p-5 group hover:shadow-xl transition-all duration-300 relative overflow-hidden"
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-white to-blue-50/30 rounded-2xl"></div>
+            
+            <div className="absolute top-0 left-0 h-1 bg-blue-600 rounded-t-2xl transition-all duration-100 ease-linear"
+                 style={{ width: `${progress}%` }}>
+              <div className="absolute inset-0 bg-blue-500 rounded-full animate-pulse"></div>
+            </div>
+
+            <div className="flex items-start gap-4 relative z-10">
+              <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110">
+                <HelpCircle className="w-5 h-5 text-white" />
+              </div>
+              
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2 mb-1">
+                  <h4 className="text-sm font-bold text-black group-hover:text-blue-600 transition-colors duration-200">
+                    Ready to get started?
+                  </h4>
+                  <Sparkles className="w-4 h-4 text-blue-500 animate-pulse" />
+                </div>
+                
+                <p className="text-xs text-black mb-3 leading-relaxed group-hover:text-gray-800 transition-colors duration-200">
+                  Use our AI agent in the bottom right corner to schedule your personalized demo
+                </p>
+              </div>
+              
+              <button 
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleClose();
+                }}
+                className="text-gray-400 hover:text-black transition-all duration-200 hover:bg-gray-100 rounded-lg p-1 group/close"
+                aria-label="Close notification"
+              >
+                <X className="w-4 h-4 group-hover/close:scale-110 transition-transform duration-200" />
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+      
+        {/* Demo Chat Windows */}
         {demoChats.map((chat, index) => (
           <div
             key={chat.id}
@@ -171,13 +248,13 @@ const Hero = () => {
             } hidden xl:block`}
             style={chat.position}
           >
-            <div className="bg-white border border-gray-200 rounded-xl shadow-2xl h-full flex flex-col overflow-hidden">
+            <div className="bg-white border border-gray-200 rounded-xl shadow-2xl h-full flex flex-col overflow-hidden hover:shadow-3xl transition-all duration-300">
               
-              {/* Fixed Header */}
+              {/* Header */}
               <div className="flex-shrink-0 bg-gradient-to-r from-blue-50 to-white border-b border-gray-200 p-4">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse shadow-lg"></div>
-                  <span className="text-xs text-gray-600 font-medium">AI Assistant • Online</span>
+                  <span className="text-xs text-black font-medium">AI Assistant • Online</span>
                   <div className="ml-auto flex gap-1">
                     {[...Array(3)].map((_, i) => (
                       <div 
@@ -189,7 +266,7 @@ const Hero = () => {
                 </div>
               </div>
               
-              {/* Scrollable Messages Area */}
+              {/* Messages Area */}
               <div className="flex-1 overflow-y-auto p-4 space-y-3">
                 {chat.messages.map((message, msgIndex) => (
                   <div
@@ -206,7 +283,7 @@ const Hero = () => {
                         className={`p-3 rounded-lg text-sm leading-relaxed shadow-lg transform hover:scale-105 transition-transform ${
                           message.type === 'user'
                             ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-br-sm'
-                            : 'bg-gradient-to-r from-gray-50 to-white text-gray-700 border border-gray-200 rounded-bl-sm'
+                            : 'bg-gradient-to-r from-gray-50 to-white text-black border border-gray-200 rounded-bl-sm'
                         }`}
                       >
                         {message.text}
@@ -221,7 +298,7 @@ const Hero = () => {
                 ))}
               </div>
               
-              {/* Fixed Footer */}
+              {/* Footer */}
               <div className="flex-shrink-0 bg-gradient-to-r from-white to-blue-50 border-t border-gray-200 p-4">
                 {currentDemo === index && (
                   <div className="flex items-center gap-2">
@@ -238,11 +315,6 @@ const Hero = () => {
                       ))}
                     </div>
                     <span className="text-xs text-gray-500 font-medium">AI is analyzing...</span>
-                    <div className="ml-auto">
-                      <button className="text-xs text-blue-600 hover:text-blue-700 font-medium transition-colors">
-                        Send message
-                      </button>
-                    </div>
                   </div>
                 )}
               </div>
@@ -260,10 +332,10 @@ const Hero = () => {
                 Transform Your Business
               </span>
               <br />
-              <span className="text-black">with AI Intelligence</span>
+              <span className="text-gray-900">with AI Intelligence</span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed font-medium">
+            <p className="text-xl md:text-2xl text-black mb-12 max-w-3xl mx-auto leading-relaxed font-medium">
               Harness the power of cutting-edge artificial intelligence to automate workflows, 
               generate insights, and accelerate your digital transformation journey.
             </p>
@@ -276,20 +348,19 @@ const Hero = () => {
                   className="flex items-center gap-2 bg-white border border-gray-200 rounded-full px-5 py-3 hover:bg-blue-50 hover:border-blue-200 hover:scale-105 transition-all duration-300 shadow-lg"
                 >
                   <feature.icon className="w-5 h-5 text-blue-600" />
-                  <span className="text-sm text-gray-700 font-medium">{feature.text}</span>
+                  <span className="text-sm text-black font-medium">{feature.text}</span>
                 </div>
               ))}
             </div>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
-              <button className="group bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white font-semibold py-4 px-8 rounded-lg transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 flex items-center justify-center gap-2 text-lg shadow-2xl">
+              <button 
+                onClick={handleStartTrial}
+                className="group bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white font-semibold py-4 px-8 rounded-lg transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 flex items-center justify-center gap-2 text-lg shadow-2xl"
+              >
                 Start Free Trial
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
-              <button className="group bg-white border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-semibold py-4 px-8 rounded-lg transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 flex items-center justify-center gap-2 text-lg shadow-xl">
-                <Zap className="w-5 h-5" />
-                View Live Demo
               </button>
             </div>
 
@@ -303,13 +374,27 @@ const Hero = () => {
                   <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent mb-2">
                     {stat.number}
                   </div>
-                  <div className="text-gray-600 text-sm md:text-base font-medium">{stat.label}</div>
+                  <div className="text-black text-sm md:text-base font-medium">{stat.label}</div>
                 </div>
               ))}
             </div>
           </div>
         </div>
       </section>
+
+      {/* Custom CSS for animations */}
+      <style jsx>{`
+        @keyframes slideInUp {
+          from {
+            transform: translateY(100%) scale(0.95);
+            opacity: 0;
+          }
+          to {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+          }
+        }
+      `}</style>
     </>
   );
 };

@@ -12,7 +12,7 @@ const PrivacyPolicy = () => {
       content: (
         <div className="space-y-4">
           <p>
-            aisona.tech (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our AI-powered chat agent services, website, and related services (collectively, the &quot;Services&quot;).
+            aisona.tech (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our AI-powered business automation services, website, and related services (collectively, the &quot;Services&quot;).
           </p>
           <p>
             By using our Services, you agree to the collection and use of information in accordance with this Privacy Policy.
@@ -29,28 +29,29 @@ const PrivacyPolicy = () => {
           <div>
             <h4 className="text-lg font-semibold text-black mb-3">Information You Provide Directly</h4>
             <ul className="space-y-2 text-gray-600">
-              <li><strong>Account Information:</strong> Name, email address, company information, billing details</li>
-              <li><strong>Chat Data:</strong> Messages, queries, and interactions with our AI agents</li>
+              <li><strong>Account Information:</strong> Company name, email address, billing details, contact information</li>
+              <li><strong>Chat Conversations:</strong> Messages, queries, and interactions with our AI agents through Voiceflow</li>
+              <li><strong>Business Data:</strong> Information you share for AI training and customization</li>
               <li><strong>Support Communications:</strong> Information provided when contacting our support team</li>
-              <li><strong>Configuration Data:</strong> Settings, preferences, and customizations for your AI agents</li>
             </ul>
           </div>
           
           <div>
             <h4 className="text-lg font-semibold text-black mb-3">Information Collected Automatically</h4>
             <ul className="space-y-2 text-gray-600">
-              <li><strong>Usage Data:</strong> How you interact with our Services, features used, time spent</li>
-              <li><strong>Device Information:</strong> IP address, browser type, operating system, device identifiers</li>
-              <li><strong>Log Data:</strong> Server logs, error reports, API calls, response times</li>
-              <li><strong>Cookies and Tracking:</strong> See our Cookie Policy for details</li>
+              <li><strong>Usage Data:</strong> How you interact with our Services, features used, session duration</li>
+              <li><strong>Technical Data:</strong> IP address, browser type, device information, operating system</li>
+              <li><strong>Chat Analytics:</strong> Conversation metrics, response times, interaction patterns</li>
+              <li><strong>Cookies:</strong> See our Cookie Policy for detailed information</li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold text-black mb-3">Information from Third Parties</h4>
+            <h4 className="text-lg font-semibold text-black mb-3">Payment Information</h4>
             <ul className="space-y-2 text-gray-600">
-              <li><strong>Integration Data:</strong> Information from connected CRM, helpdesk, or other business systems</li>
-              <li><strong>Payment Information:</strong> Billing data from payment processors (we do not store payment card details)</li>
+              <li><strong>Payment Processing:</strong> Billing data processed through Stripe, PayPal, and JCCSmart</li>
+              <li><strong>Transaction Records:</strong> Payment history, invoices, and billing preferences</li>
+              <li>Note: We do not store credit card details directly</li>
             </ul>
           </div>
         </div>
@@ -65,10 +66,10 @@ const PrivacyPolicy = () => {
           <div>
             <h4 className="text-lg font-semibold text-black mb-3">Service Provision</h4>
             <ul className="space-y-1 text-gray-600">
-              <li>• Operate and maintain our AI chat agent services</li>
-              <li>• Process and respond to your queries through AI agents</li>
-              <li>• Provide customer support and technical assistance</li>
-              <li>• Manage your account and billing</li>
+              <li>• Operate and maintain AI automation services</li>
+              <li>• Process chat conversations and provide AI responses</li>
+              <li>• Deliver customer support and technical assistance</li>
+              <li>• Process payments and manage billing</li>
             </ul>
           </div>
 
@@ -76,19 +77,19 @@ const PrivacyPolicy = () => {
             <h4 className="text-lg font-semibold text-black mb-3">Service Improvement</h4>
             <ul className="space-y-1 text-gray-600">
               <li>• Analyze usage patterns to improve AI performance</li>
+              <li>• Train and optimize AI models using conversation data</li>
               <li>• Develop new features and functionality</li>
-              <li>• Train and optimize our AI models (with anonymized data only)</li>
-              <li>• Conduct research and analytics</li>
+              <li>• Conduct analytics and performance monitoring</li>
             </ul>
           </div>
 
           <div>
             <h4 className="text-lg font-semibold text-black mb-3">Legal and Security</h4>
             <ul className="space-y-1 text-gray-600">
-              <li>• Comply with legal obligations and regulatory requirements</li>
-              <li>• Protect against fraud, abuse, and security threats</li>
+              <li>• Comply with legal obligations</li>
+              <li>• Protect against fraud and security threats</li>
               <li>• Enforce our Terms of Service</li>
-              <li>• Respond to legal requests and court orders</li>
+              <li>• Respond to legal requests</li>
             </ul>
           </div>
         </div>
@@ -103,20 +104,20 @@ const PrivacyPolicy = () => {
           <div>
             <h4 className="text-lg font-semibold text-black mb-3">Security Measures</h4>
             <ul className="space-y-2 text-gray-600">
-              <li><strong>Encryption:</strong> Data encrypted in transit (TLS 1.3) and at rest (AES-256)</li>
+              <li><strong>Encryption:</strong> All data encrypted in transit and at rest</li>
               <li><strong>Access Controls:</strong> Role-based access with multi-factor authentication</li>
-              <li><strong>Infrastructure:</strong> SOC 2 Type II compliant data centers</li>
+              <li><strong>Infrastructure:</strong> SOC 2 Type II compliant hosting</li>
               <li><strong>Monitoring:</strong> 24/7 security monitoring and threat detection</li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold text-black mb-3">Chat Data Protection</h4>
+            <h4 className="text-lg font-semibold text-black mb-3">Voiceflow Integration Security</h4>
             <ul className="space-y-1 text-gray-600">
-              <li>• All chat conversations are encrypted end-to-end</li>
-              <li>• Access limited to authorized personnel for support purposes only</li>
-              <li>• Regular security audits and penetration testing</li>
-              <li>• Incident response procedures in place</li>
+              <li>• Secure API connections for chat data</li>
+              <li>• Encrypted conversation storage</li>
+              <li>• Regular security audits</li>
+              <li>• Access limited to authorized personnel only</li>
             </ul>
           </div>
         </div>
@@ -129,21 +130,21 @@ const PrivacyPolicy = () => {
       content: (
         <div className="space-y-6">
           <div>
-            <h4 className="text-lg font-semibold text-black mb-3">GDPR Rights</h4>
+            <h4 className="text-lg font-semibold text-black mb-3">Data Protection Rights</h4>
             <ul className="space-y-2 text-gray-600">
-              <li><strong>Access:</strong> Request a copy of your personal data</li>
-              <li><strong>Rectification:</strong> Correct inaccurate or incomplete data</li>
-              <li><strong>Erasure:</strong> Request deletion of your personal data</li>
-              <li><strong>Portability:</strong> Receive your data in a structured format</li>
-              <li><strong>Restriction:</strong> Limit how we process your data</li>
-              <li><strong>Objection:</strong> Object to processing based on legitimate interests</li>
+              <li><strong>Access:</strong> Request a copy of your data</li>
+              <li><strong>Correction:</strong> Update inaccurate information</li>
+              <li><strong>Deletion:</strong> Request removal of your data</li>
+              <li><strong>Portability:</strong> Receive data in structured format</li>
+              <li><strong>Restriction:</strong> Limit data processing</li>
+              <li><strong>Objection:</strong> Object to certain processing activities</li>
             </ul>
           </div>
 
           <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
             <p className="text-blue-700">
-              <strong>Exercising Your Rights:</strong> Contact our AI chat agent to exercise any of these rights. 
-              We will respond within 30 days and verify your identity as required.
+              <strong>Exercise Your Rights:</strong> Contact our AI chat agent to make any data requests. 
+              We respond within 30 days and verify identity as required.
             </p>
           </div>
         </div>
@@ -158,19 +159,19 @@ const PrivacyPolicy = () => {
           <div>
             <h4 className="text-lg font-semibold text-black mb-3">Retention Periods</h4>
             <ul className="space-y-2 text-gray-600">
-              <li><strong>Chat Data:</strong> Retained for the duration of your subscription plus 90 days</li>
-              <li><strong>Account Data:</strong> Retained until account deletion plus 30 days for billing</li>
-              <li><strong>Log Data:</strong> Retained for 12 months for security and optimization</li>
-              <li><strong>Billing Data:</strong> Retained for 7 years to comply with tax regulations</li>
+              <li><strong>Chat Data:</strong> Stored during subscription plus 90 days</li>
+              <li><strong>Account Data:</strong> Kept until deletion plus 30 days</li>
+              <li><strong>Analytics Data:</strong> Retained for 12 months</li>
+              <li><strong>Payment Records:</strong> 7 years for tax compliance</li>
             </ul>
           </div>
 
           <div>
             <h4 className="text-lg font-semibold text-black mb-3">Data Deletion</h4>
             <ul className="space-y-1 text-gray-600">
-              <li>• You may request deletion of your data at any time</li>
-              <li>• Automated deletion processes remove data after retention periods</li>
-              <li>• Some data may be retained in anonymized form for analytics</li>
+              <li>• Request deletion anytime through our chat agent</li>
+              <li>• Automatic deletion after retention periods</li>
+              <li>• Some data may be anonymized for analytics</li>
             </ul>
           </div>
         </div>
@@ -190,25 +191,6 @@ const PrivacyPolicy = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center text-sm text-gray-600">
             <span><strong>Effective Date:</strong> {effectiveDate}</span>
             <span><strong>Last Updated:</strong> {lastUpdated}</span>
-          </div>
-        </div>
-
-        {/* Important Notice */}
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-8">
-          <div className="flex items-start gap-3">
-            <Shield className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-            <div>
-              <h3 className="font-semibold text-blue-900 mb-2">Our Data Usage Commitment</h3>
-              <p className="text-blue-700 text-sm leading-relaxed mb-3">
-                We are committed to protecting your privacy and being transparent about how we handle your data. 
-                <strong> We primarily use only publicly available information</strong> (such as content visible on your website) 
-                to provide our AI chat services.
-              </p>
-              <p className="text-blue-700 text-sm leading-relaxed">
-                For any non-public data, we strictly comply with all applicable rules, regulations, and laws, 
-                ensuring your private information remains protected and is only processed with proper authorization.
-              </p>
-            </div>
           </div>
         </div>
 
@@ -252,19 +234,19 @@ const PrivacyPolicy = () => {
         <div className="mt-16 bg-blue-50 rounded-lg p-8 text-center border border-blue-200">
           <div className="flex items-center justify-center gap-3 mb-4">
             <MessageSquare className="w-8 h-8 text-blue-600" />
-            <h3 className="text-xl font-semibold text-black">Questions About This Policy?</h3>
+            <h3 className="text-xl font-semibold text-black">Privacy Questions?</h3>
           </div>
           <p className="text-gray-600 mb-6">
-            If you have any questions about this Privacy Policy, data practices, GDPR rights, 
-            or want to exercise your privacy rights, our AI chat agent is available 24/7 to help.
+            Questions about this Privacy Policy or want to exercise your privacy rights? 
+            Our AI chat agent is available 24/7 to help.
           </p>
           <div className="bg-white rounded-lg p-4 border border-blue-200">
             <p className="text-blue-700 font-medium mb-2">
               💬 Chat with our AI Privacy Assistant
             </p>
             <p className="text-sm text-gray-600">
-              Get instant answers about data collection, privacy rights, GDPR compliance, 
-              data deletion requests, or any other privacy-related questions.
+              Get instant answers about data collection, privacy rights, 
+              deletion requests, or any privacy-related questions.
             </p>
           </div>
           <div className="mt-4 text-sm text-gray-500">

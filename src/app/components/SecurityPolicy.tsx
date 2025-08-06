@@ -42,12 +42,12 @@ const SecurityPolicy = () => {
         {
           name: "End-to-End Encryption",
           description: "AES-256 encryption for data at rest, TLS 1.3 for data in transit",
-          implementation: "All customer data encrypted with unique keys"
+          implementation: "All data encrypted with unique keys"
         },
         {
-          name: "Data Isolation",
-          description: "Customer data logically separated using multi-tenant architecture",
-          implementation: "Database-level isolation with role-based access controls"
+          name: "Chat Data Security",
+          description: "Voiceflow conversation data encrypted and isolated",
+          implementation: "Secure API connections with conversation encryption"
         },
         {
           name: "Backup & Recovery",
@@ -57,7 +57,7 @@ const SecurityPolicy = () => {
         {
           name: "Data Retention",
           description: "Automated data lifecycle management and secure deletion",
-          implementation: "Cryptographic erasure and certified data destruction"
+          implementation: "Cryptographic erasure and certified destruction"
         }
       ]
     },
@@ -73,17 +73,17 @@ const SecurityPolicy = () => {
         {
           name: "Role-Based Access Control",
           description: "Principle of least privilege with granular permissions",
-          implementation: "Dynamic role assignment with regular access reviews"
+          implementation: "Dynamic role assignment with access reviews"
         },
         {
           name: "Single Sign-On (SSO)",
           description: "Enterprise SSO integration with SAML 2.0 and OAuth 2.0",
-          implementation: "Supports major identity providers (Okta, Azure AD, etc.)"
+          implementation: "Supports major identity providers"
         },
         {
           name: "Session Management",
           description: "Secure session handling with automatic timeout",
-          implementation: "Token-based authentication with refresh mechanisms"
+          implementation: "Token-based authentication with refresh"
         }
       ]
     },
@@ -99,17 +99,17 @@ const SecurityPolicy = () => {
         {
           name: "Network Security",
           description: "Advanced firewall rules and network segmentation",
-          implementation: "VPC isolation, DDoS protection, and traffic monitoring"
-        },
-        {
-          name: "Container Security",
-          description: "Secure containerization with image scanning",
-          implementation: "Kubernetes with security policies and runtime protection"
+          implementation: "VPC isolation, DDoS protection, traffic monitoring"
         },
         {
           name: "API Security",
           description: "Rate limiting, authentication, and input validation",
-          implementation: "API gateways with threat detection and monitoring"
+          implementation: "API gateways with threat detection"
+        },
+        {
+          name: "Payment Security",
+          description: "Secure payment processing through certified providers",
+          implementation: "Stripe, PayPal, JCCSmart integration with PCI compliance"
         }
       ]
     },
@@ -125,7 +125,7 @@ const SecurityPolicy = () => {
         {
           name: "Vulnerability Management",
           description: "Regular security assessments and penetration testing",
-          implementation: "Quarterly assessments by certified security firms"
+          implementation: "Quarterly assessments by certified firms"
         },
         {
           name: "Audit Logging",
@@ -134,8 +134,8 @@ const SecurityPolicy = () => {
         },
         {
           name: "Incident Response",
-          description: "Documented procedures for security incident handling",
-          implementation: "24-hour response team with escalation protocols"
+          description: "24-hour response team with escalation protocols",
+          implementation: "Documented procedures for security incidents"
         }
       ]
     }
@@ -153,13 +153,13 @@ const SecurityPolicy = () => {
       status: "Implemented"
     },
     {
-      standard: "Audit & Monitoring",
-      requirements: ["Comprehensive audit logs", "Real-time monitoring", "Incident response procedures"],
+      standard: "Monitoring",
+      requirements: ["Comprehensive audit logs", "Real-time monitoring", "Incident response"],
       status: "Implemented"
     },
     {
       standard: "Data Governance",
-      requirements: ["Data classification", "Retention policies", "Secure deletion procedures"],
+      requirements: ["Data classification", "Retention policies", "Secure deletion"],
       status: "Implemented"
     }
   ];
@@ -188,7 +188,8 @@ const SecurityPolicy = () => {
           </div>
 
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Enterprise-grade security measures protecting your data and ensuring compliance with industry standards.
+            Enterprise-grade security measures protecting your data and ensuring 
+            compliance with industry standards.
           </p>
         </div>
 
@@ -197,15 +198,10 @@ const SecurityPolicy = () => {
           <div className="flex items-start gap-3">
             <Shield className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
             <div>
-              <h3 className="font-semibold text-blue-900 mb-2">Our Security Commitment & Data Handling</h3>
+              <h3 className="font-semibold text-blue-900 mb-2">Our Security Commitment</h3>
               <p className="text-blue-700 text-sm leading-relaxed mb-4">
                 Security is fundamental to everything we do. We implement defense-in-depth strategies, 
-                maintain industry certifications, and continuously monitor for threats to protect your data and privacy.
-              </p>
-              <p className="text-blue-700 text-sm leading-relaxed mb-4">
-                <strong>Responsible Data Usage:</strong> Our AI services primarily use publicly available data 
-                (such as website content and public information). For any private or sensitive data, 
-                we maintain the highest security standards and full compliance with all applicable regulations.
+                maintain industry certifications, and continuously monitor for threats.
               </p>
               <div className="grid md:grid-cols-4 gap-4 text-sm">
                 <div className="text-center">
@@ -231,10 +227,10 @@ const SecurityPolicy = () => {
 
         {/* Security Frameworks */}
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-black mb-6">Security Frameworks & Certifications</h2>
+          <h2 className="text-2xl font-bold text-black mb-6">Security Certifications</h2>
           <div className="grid md:grid-cols-2 gap-6">
             {securityFrameworks.map((framework, index) => (
-              <div key={index} className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
+              <div key={index} className="bg-white border border-gray-200 rounded-lg p-6">
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
@@ -256,7 +252,7 @@ const SecurityPolicy = () => {
 
         {/* Security Measures */}
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-black mb-6">Comprehensive Security Measures</h2>
+          <h2 className="text-2xl font-bold text-black mb-6">Security Measures</h2>
           <div className="space-y-8">
             {securityMeasures.map((category, index) => (
               <div key={index} className="bg-gray-50 rounded-lg p-6">
@@ -310,52 +306,76 @@ const SecurityPolicy = () => {
 
         {/* Incident Response */}
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-black mb-6">Incident Response Procedures</h2>
-          <div className="bg-red-50 border border-red-200 rounded-lg p-6 mb-6">
+          <h2 className="text-2xl font-bold text-black mb-6">Incident Response</h2>
+          <div className="bg-red-50 border border-red-200 rounded-lg p-6">
             <div className="flex items-start gap-3">
               <AlertTriangle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
               <div>
                 <h3 className="font-semibold text-red-900 mb-2">24/7 Incident Response</h3>
-                <p className="text-red-700 text-sm">
+                <p className="text-red-700 text-sm mb-4">
                   Our security team maintains round-the-clock monitoring with documented procedures 
-                  for rapid response to any security incidents or threats.
+                  for rapid response to security incidents.
                 </p>
+                <div className="grid md:grid-cols-3 gap-4 text-sm">
+                  <div>
+                    <h4 className="font-medium text-red-900 mb-2">Detection</h4>
+                    <ul className="space-y-1 text-red-700">
+                      <li>• Automated monitoring</li>
+                      <li>• Threat intelligence</li>
+                      <li>• Anomaly detection</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-red-900 mb-2">Response</h4>
+                    <ul className="space-y-1 text-red-700">
+                      <li>• Immediate containment</li>
+                      <li>• Impact assessment</li>
+                      <li>• Stakeholder notification</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-red-900 mb-2">Recovery</h4>
+                    <ul className="space-y-1 text-red-700">
+                      <li>• System restoration</li>
+                      <li>• Evidence preservation</li>
+                      <li>• Lessons learned</li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-
-
         </section>
 
         {/* Responsible Disclosure */}
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-black mb-6">Responsible Disclosure</h2>
+          <h2 className="text-2xl font-bold text-black mb-6">Security Research</h2>
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
             <div className="flex items-start gap-3">
               <Eye className="w-5 h-5 text-gray-600 flex-shrink-0 mt-0.5" />
               <div>
-                <h3 className="font-semibold text-gray-900 mb-2">Security Research & Bug Bounty</h3>
+                <h3 className="font-semibold text-gray-900 mb-2">Responsible Disclosure</h3>
                 <p className="text-gray-600 mb-4">
-                  We welcome security researchers to help us maintain the highest security standards. 
-                  If you discover a security vulnerability, please report it responsibly.
+                  We welcome security researchers to help maintain the highest security standards. 
+                  Please report vulnerabilities responsibly.
                 </p>
                 <div className="grid md:grid-cols-2 gap-6 text-sm">
                   <div>
-                    <h4 className="font-medium text-gray-900 mb-2">Reporting Process:</h4>
+                    <h4 className="font-medium text-gray-900 mb-2">Reporting:</h4>
                     <ul className="space-y-1 text-gray-600">
-                      <li>• Contact our AI chat agent for security reporting</li>
-                      <li>• Include detailed vulnerability description</li>
-                      <li>• Provide steps to reproduce</li>
-                      <li>• Allow reasonable time for response</li>
+                      <li>• Contact via AI chat agent</li>
+                      <li>• Include detailed description</li>
+                      <li>• Provide reproduction steps</li>
+                      <li>• Allow reasonable response time</li>
                     </ul>
                   </div>
                   <div>
                     <h4 className="font-medium text-gray-900 mb-2">Our Commitment:</h4>
                     <ul className="space-y-1 text-gray-600">
-                      <li>• Acknowledge receipt within 24 hours</li>
-                      <li>• Provide regular status updates</li>
-                      <li>• Credit researchers (if desired)</li>
-                      <li>• No legal action for good faith research</li>
+                      <li>• 24-hour acknowledgment</li>
+                      <li>• Regular status updates</li>
+                      <li>• Researcher credit (if desired)</li>
+                      <li>• No legal action for good faith</li>
                     </ul>
                   </div>
                 </div>
@@ -368,19 +388,19 @@ const SecurityPolicy = () => {
         <div className="bg-blue-50 rounded-lg p-8 text-center border border-blue-200">
           <div className="flex items-center justify-center gap-3 mb-4">
             <MessageSquare className="w-8 h-8 text-blue-600" />
-            <h3 className="text-xl font-semibold text-black">Security Questions or Concerns?</h3>
+            <h3 className="text-xl font-semibold text-black">Security Questions?</h3>
           </div>
           <p className="text-gray-600 mb-6">
-            Our AI-powered chat agent is available 24/7 to address any questions about our security measures, 
-            report security issues, or handle any security-related concerns.
+            Our AI chat agent is available 24/7 to address security questions, 
+            report issues, or handle security-related concerns.
           </p>
           <div className="bg-white rounded-lg p-4 border border-blue-200">
             <p className="text-blue-700 font-medium mb-2">
               💬 Chat with our AI Security Assistant
             </p>
             <p className="text-sm text-gray-600">
-              Whether you need information about our security practices, want to report a vulnerability, 
-              or have compliance questions - our intelligent chat agent can help you immediately.
+              Get information about security practices, report vulnerabilities, 
+              or ask compliance questions.
             </p>
           </div>
           <div className="mt-4 text-sm text-gray-500">

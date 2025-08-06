@@ -25,10 +25,12 @@ const Footer = () => {
     {
       title: "Legal",
       links: [
-        { name: "Privacy Policy", href: "/privacy" },
-        { name: "Terms of Service", href: "/terms" },
-        { name: "GDPR Compliance", href: "/gdpr" },
-        { name: "Security", href: "/security" }
+        { name: "Privacy Policy", href: "/privacy-policy" },
+        { name: "Terms of Service", href: "/terms-policy" },
+        { name: "GDPR Compliance", href: "/gdpr-policy" },
+        { name: "Security", href: "/security-policy" },
+        { name: "Cookie Policy", href: "/cookie-policy" },
+        { name: "Refund Policy", href: "/refund-policy" }
       ]
     }
   ];
@@ -82,16 +84,18 @@ const Footer = () => {
             {/* Brand Section */}
             <div className="lg:col-span-2">
               {/* Logo */}
-              <Link href="/" className="flex items-center gap-3 mb-6 hover:opacity-80 transition-opacity">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-r from-blue-500 to-blue-600 p-0.5 shadow-lg">
-                  <div className="w-full h-full rounded-xl bg-white flex items-center justify-center">
-                    <Zap className="w-5 h-5 text-black" />
-                  </div>
-                </div>
-                <span className="text-2xl font-bold text-black">
-                  aisona.tech
-                </span>
-              </Link>
+            <Link href="/" className="flex items-center gap-3 mb-6 hover:opacity-80 transition-opacity">
+              <div className="w-10 h-10 rounded-xl overflow-hidden shadow-lg">
+                <img 
+                  src="/logo.png" 
+                  alt="aisona.tech logo" 
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              <span className="text-2xl font-bold text-black">
+                aisona.tech
+              </span>
+            </Link>
 
               <p className="text-gray-600 mb-8 leading-relaxed max-w-md">
                 Empowering businesses with cutting-edge AI technology. Transform your operations 
@@ -166,12 +170,12 @@ const Footer = () => {
 
         {/* Bottom Footer */}
         <div className="py-8 border-t border-gray-200">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="text-gray-600 text-sm">
+          <div className="flex justify-center items-center">
+            <div className="text-gray-600 text-sm text-center">
               © {currentYear} aisona.tech. All rights reserved.
             </div>
             
-            <div className="flex items-center gap-6 text-sm">
+            {/* <div className="flex items-center gap-6 text-sm">
               {legalLinks.map((link, index) => (
                 <Link 
                   key={index}
@@ -181,7 +185,7 @@ const Footer = () => {
                   {link.name}
                 </Link>
               ))}
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

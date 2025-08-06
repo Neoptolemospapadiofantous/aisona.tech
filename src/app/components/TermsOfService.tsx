@@ -15,36 +15,37 @@ const TermsOfService = () => {
             By accessing or using aisona.tech&apos;s AI-powered business automation services (&quot;Services&quot;), you agree to be bound by these Terms of Service (&quot;Terms&quot;). If you do not agree to these Terms, you may not use our Services.
           </p>
           <p>
-            These Terms constitute a legally binding agreement between you and aisona.tech (&quot;Company,&quot; &quot;we,&quot; &quot;our,&quot; or &quot;us&quot;). Your use of our Services signifies your acceptance of these Terms.
+            These Terms constitute a legally binding agreement between you and aisona.tech (&quot;Company,&quot; &quot;we,&quot; &quot;our,&quot; or &quot;us&quot;).
           </p>
         </div>
       )
     },
     {
-      id: "description",
-      title: "Description of Services",
+      id: "services",
+      title: "Our Services",
       icon: Users,
       content: (
         <div className="space-y-6">
           <p>
-            aisona.tech provides AI-powered business automation services designed to enhance customer service, streamline operations, and optimize business processes for companies across various industries.
+            aisona.tech provides AI-powered business automation services designed to enhance operations, customer service, and business processes.
           </p>
           
           <div>
-            <h4 className="text-lg font-semibold text-black mb-3">Our Business Automation Services Include:</h4>
+            <h4 className="text-lg font-semibold text-black mb-3">Services Include:</h4>
             <ul className="space-y-2 text-gray-600">
-              <li><strong>Customer Support AI:</strong> Intelligent chat agents for automated customer service, inquiry handling, and technical support</li>
-              <li><strong>Business Operations Support:</strong> AI-powered workflow automation and process optimization assistance</li>
-              <li><strong>Data Analysis & Insights:</strong> Automated data processing, reporting, and business intelligence</li>
-              <li><strong>Service Integration:</strong> AI-assisted integration with CRM, helpdesk, and business management systems</li>
-              <li><strong>System Integration:</strong> API access and integration with existing business systems and workflows</li>
-              <li><strong>Analytics and Reporting:</strong> Performance metrics, operational optimization, and customer satisfaction insights</li>
+              <li><strong>AI Customer Support:</strong> Intelligent chat agents for automated customer service and support</li>
+              <li><strong>Lead Generation:</strong> AI-powered lead qualification and nurturing systems</li>
+              <li><strong>Smart Ticketing:</strong> Automated ticket management and routing systems</li>
+              <li><strong>Process Automation:</strong> Workflow automation and business process optimization</li>
+              <li><strong>System Integration:</strong> API access and integration with existing business systems</li>
+              <li><strong>Analytics:</strong> Performance metrics and business intelligence reporting</li>
             </ul>
           </div>
 
           <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
             <p className="text-blue-700">
-              <strong>Service Availability:</strong> We strive to maintain 99.9% uptime to ensure continuous business operations support. Scheduled maintenance will be communicated in advance with 72-hour notice minimum.
+              <strong>Service Availability:</strong> We maintain 99.9% uptime SLA with 24/7 monitoring. 
+              Scheduled maintenance communicated 72 hours in advance.
             </p>
           </div>
         </div>
@@ -52,31 +53,30 @@ const TermsOfService = () => {
     },
     {
       id: "acceptable-use",
-      title: "Acceptable Use Policy",
+      title: "Acceptable Use",
       icon: Shield,
       content: (
         <div className="space-y-6">
           <div>
             <h4 className="text-lg font-semibold text-black mb-3">Permitted Uses</h4>
             <ul className="space-y-1 text-gray-600">
-              <li>• Use Services for legitimate business purposes and operations</li>
-              <li>• Integrate with your existing business infrastructure and support systems</li>
-              <li>• Access and use provided APIs within rate limits for business operations</li>
-              <li>• Process business data in compliance with applicable laws and regulations</li>
-              <li>• Automate customer service, business processes, and operational workflows</li>
+              <li>• Use Services for legitimate business operations</li>
+              <li>• Integrate with existing business systems</li>
+              <li>• Process business data in compliance with applicable laws</li>
+              <li>• Automate customer service and business processes</li>
+              <li>• Access APIs within rate limits</li>
             </ul>
           </div>
 
           <div>
             <h4 className="text-lg font-semibold text-black mb-3">Prohibited Uses</h4>
             <ul className="space-y-1 text-gray-600">
-              <li>• Use Services for illegal activities or regulatory violations</li>
-              <li>• Attempt to reverse engineer, decompile, or hack our Services</li>
-              <li>• Exceed API rate limits or attempt to circumvent usage restrictions</li>
-              <li>• Use Services to send unauthorized communications, spam, or unsolicited messages</li>
-              <li>• Violate applicable laws, regulations, or privacy requirements</li>
-              <li>• Interfere with normal business operations or system infrastructure</li>
-              <li>• Process customer data in violation of privacy regulations or laws</li>
+              <li>• Illegal activities or regulatory violations</li>
+              <li>• Reverse engineering or hacking attempts</li>
+              <li>• Exceeding API rate limits</li>
+              <li>• Sending spam or unauthorized communications</li>
+              <li>• Interfering with system operations</li>
+              <li>• Violating privacy regulations</li>
             </ul>
           </div>
 
@@ -86,7 +86,7 @@ const TermsOfService = () => {
               <div>
                 <p className="text-red-700 font-semibold mb-1">Compliance Violations</p>
                 <p className="text-red-600 text-sm">
-                  Violation of applicable regulations or these terms may result in immediate suspension or termination of your account without refund, and may be reported to relevant authorities.
+                  Violations may result in immediate account suspension without refund.
                 </p>
               </div>
             </div>
@@ -101,33 +101,33 @@ const TermsOfService = () => {
       content: (
         <div className="space-y-6">
           <div>
-            <h4 className="text-lg font-semibold text-black mb-3">Subscription Plans</h4>
+            <h4 className="text-lg font-semibold text-black mb-3">Payment Methods</h4>
             <ul className="space-y-2 text-gray-600">
-              <li><strong>Monthly Billing:</strong> Charges processed monthly in advance</li>
-              <li><strong>Annual Billing:</strong> Charges processed annually with potential discounts</li>
-              <li><strong>Usage-Based:</strong> Additional charges for usage beyond plan limits (API calls, customer interactions)</li>
-              <li><strong>Enterprise Business:</strong> Custom pricing for large organizations and enterprises</li>
+              <li><strong>Credit/Debit Cards:</strong> Processed securely through Stripe</li>
+              <li><strong>PayPal:</strong> Available for subscription payments</li>
+              <li><strong>JCCSmart:</strong> Local payment processing option</li>
+              <li><strong>Wire Transfer:</strong> Available for enterprise accounts</li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold text-black mb-3">Payment Terms</h4>
+            <h4 className="text-lg font-semibold text-black mb-3">Billing Terms</h4>
             <ul className="space-y-1 text-gray-600">
+              <li>• Monthly or annual billing cycles available</li>
               <li>• Payment due upon subscription or renewal</li>
-              <li>• Accepted payment methods: Credit cards, ACH transfers, wire transfers</li>
-              <li>• Automatic renewal unless cancelled before billing cycle</li>
-              <li>• Late payments may result in service suspension (with 48-hour grace period for business operations)</li>
-              <li>• All prices exclude applicable taxes and fees unless stated otherwise</li>
+              <li>• Automatic renewal unless cancelled</li>
+              <li>• 48-hour grace period for failed payments</li>
+              <li>• All prices exclude applicable taxes</li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold text-black mb-3">Refund Policy</h4>
+            <h4 className="text-lg font-semibold text-black mb-3">Refunds</h4>
             <ul className="space-y-1 text-gray-600">
-              <li>• 30-day money-back guarantee for new business subscriptions</li>
-              <li>• Pro-rated refunds for annual plans cancelled within first 30 days</li>
-              <li>• No refunds for partial months or usage-based charges</li>
-              <li>• Refund requests can be submitted through our AI chat agent</li>
+              <li>• 30-day money-back guarantee for new subscriptions</li>
+              <li>• Pro-rated refunds for annual plans (first 30 days)</li>
+              <li>• No refunds for partial billing periods</li>
+              <li>• Refund requests via AI chat agent</li>
             </ul>
           </div>
         </div>
@@ -140,30 +140,28 @@ const TermsOfService = () => {
       content: (
         <div className="space-y-6">
           <div>
-            <h4 className="text-lg font-semibold text-black mb-3">Your Business Data Rights</h4>
+            <h4 className="text-lg font-semibold text-black mb-3">Your Data Rights</h4>
             <ul className="space-y-2 text-gray-600">
-              <li><strong>Ownership:</strong> You retain ownership of all business and customer data you input into our Services</li>
-              <li><strong>Data Protection:</strong> All sensitive business information is handled with strict compliance to applicable regulations</li>
-              <li><strong>Control:</strong> You control how your business data is used and can request deletion</li>
-              <li><strong>Privacy:</strong> We process data according to our Privacy Policy and applicable regulations</li>
-              <li><strong>Security:</strong> Enterprise-grade security measures protect your business and customer data</li>
+              <li><strong>Ownership:</strong> You retain ownership of all business data</li>
+              <li><strong>Control:</strong> You control data usage and can request deletion</li>
+              <li><strong>Security:</strong> Enterprise-grade protection measures</li>
+              <li><strong>Privacy:</strong> Processing per our Privacy Policy</li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold text-black mb-3">Our Data Use for Business Services</h4>
+            <h4 className="text-lg font-semibold text-black mb-3">Our Data Use</h4>
             <ul className="space-y-1 text-gray-600">
-              <li>• Process business data to provide automation and support services</li>
-              <li>• Anonymized data may be used for AI model training (no personal or sensitive data)</li>
-              <li>• Aggregate analytics to improve business service performance</li>
-              <li>• Comply with applicable regulations and legal obligations</li>
-              <li>• Generate reports for business optimization and customer service improvement</li>
+              <li>• Process data to provide automation services</li>
+              <li>• Use conversation data to improve AI performance</li>
+              <li>• Generate analytics for service optimization</li>
+              <li>• Comply with legal obligations</li>
             </ul>
           </div>
 
           <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
             <p className="text-blue-700">
-              <strong>Data Compliance:</strong> We are fully compliant with GDPR, applicable data protection laws, and industry-specific privacy standards. We maintain strict compliance with all applicable business regulations and privacy requirements. See our Privacy Policy and Compliance pages for details.
+              <strong>Data Compliance:</strong> We maintain full compliance with GDPR and applicable data protection laws.
             </p>
           </div>
         </div>
@@ -171,38 +169,32 @@ const TermsOfService = () => {
     },
     {
       id: "limitations",
-      title: "Limitations and Disclaimers",
+      title: "Limitations",
       icon: AlertTriangle,
       content: (
         <div className="space-y-6">
           <div>
             <h4 className="text-lg font-semibold text-black mb-3">Service Limitations</h4>
             <ul className="space-y-2 text-gray-600">
-              <li><strong>AI Accuracy:</strong> AI responses for business support may not always be 100% accurate; human oversight recommended for critical business decisions</li>
-              <li><strong>System Dependencies:</strong> Service quality may be affected by internet connectivity and system conditions</li>
-              <li><strong>Capacity:</strong> Usage limits apply based on your subscription plan and may vary during peak traffic periods</li>
-              <li><strong>Third-Party Integration:</strong> Integration availability depends on third-party APIs and system compatibility</li>
-              <li><strong>Regulatory Changes:</strong> Services may be modified to comply with changing business regulations</li>
+              <li><strong>AI Accuracy:</strong> AI responses may not always be 100% accurate</li>
+              <li><strong>Dependencies:</strong> Service quality depends on internet connectivity</li>
+              <li><strong>Capacity:</strong> Usage limits based on subscription plan</li>
+              <li><strong>Integration:</strong> Dependent on third-party API availability</li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold text-black mb-3">Disclaimer of Warranties</h4>
+            <h4 className="text-lg font-semibold text-black mb-3">Disclaimers</h4>
             <p className="text-gray-600 mb-4">
-              THE BUSINESS AUTOMATION SERVICES ARE PROVIDED &quot;AS IS&quot; AND &quot;AS AVAILABLE&quot; WITHOUT WARRANTIES OF ANY KIND, 
-              EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF 
-              MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. WE DO NOT WARRANT 
+              SERVICES PROVIDED &quot;AS IS&quot; WITHOUT WARRANTIES. WE DO NOT WARRANT 
               UNINTERRUPTED SERVICE OR ERROR-FREE OPERATIONS.
             </p>
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold text-black mb-3">Limitation of Liability</h4>
+            <h4 className="text-lg font-semibold text-black mb-3">Liability Limitation</h4>
             <p className="text-gray-600">
-              IN NO EVENT SHALL AISONA.TECH BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, 
-              CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING WITHOUT LIMITATION, LOSS OF PROFITS, 
-              BUSINESS SERVICE INTERRUPTION, SYSTEM DOWNTIME, DATA LOSS, OR OTHER 
-              INTANGIBLE LOSSES, RESULTING FROM YOUR USE OF THE SERVICES.
+              OUR LIABILITY IS LIMITED TO THE AMOUNT PAID FOR SERVICES IN THE PRECEDING 12 MONTHS.
             </p>
           </div>
         </div>
@@ -215,34 +207,30 @@ const TermsOfService = () => {
       content: (
         <div className="space-y-6">
           <div>
-            <h4 className="text-lg font-semibold text-black mb-3">Termination by You</h4>
+            <h4 className="text-lg font-semibold text-black mb-3">By You</h4>
             <ul className="space-y-1 text-gray-600">
-              <li>• Cancel your subscription at any time through your account settings</li>
-              <li>• Service continues until the end of your current billing period</li>
-              <li>• Data export available for 60 days after cancellation</li>
-              <li>• No refunds for partial billing periods</li>
-              <li>• 30-day notice recommended for large enterprise deployments</li>
+              <li>• Cancel subscription anytime via account settings</li>
+              <li>• Service continues until end of billing period</li>
+              <li>• Data export available for 60 days</li>
+              <li>• No refunds for partial periods</li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold text-black mb-3">Termination by Us</h4>
+            <h4 className="text-lg font-semibold text-black mb-3">By Us</h4>
             <ul className="space-y-1 text-gray-600">
-              <li>• Immediate termination for violation of applicable regulations or these Terms</li>
-              <li>• 30-day notice for termination without cause (60 days for enterprise clients)</li>
-              <li>• Suspension for non-payment until resolved (48-hour grace period for critical business operations)</li>
-              <li>• Right to refuse service for regulatory compliance reasons</li>
+              <li>• Immediate termination for violations</li>
+              <li>• 30-day notice for termination without cause</li>
+              <li>• Suspension for non-payment</li>
             </ul>
           </div>
 
           <div>
             <h4 className="text-lg font-semibold text-black mb-3">Effect of Termination</h4>
             <ul className="space-y-1 text-gray-600">
-              <li>• Immediate cessation of AI service access</li>
-              <li>• Customer and business data deletion after 60-day grace period</li>
+              <li>• Immediate service access termination</li>
+              <li>• Data deletion after 60-day grace period</li>
               <li>• Outstanding payments remain due</li>
-              <li>• Survival of applicable Terms sections and regulatory obligations</li>
-              <li>• Assistance with service migration for business continuity (additional fees may apply)</li>
             </ul>
           </div>
         </div>
@@ -258,9 +246,6 @@ const TermsOfService = () => {
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-black">
             Terms of Service
           </h1>
-          <p className="text-lg text-gray-600 mb-4">
-            AI-Powered Business Automation Services
-          </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center text-sm text-gray-600">
             <span><strong>Effective Date:</strong> {effectiveDate}</span>
@@ -268,20 +253,15 @@ const TermsOfService = () => {
           </div>
         </div>
 
-        {/* Important Notice */}
+        {/* Legal Notice */}
         <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-8">
           <div className="flex items-start gap-3">
             <Scale className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
             <div>
-              <h3 className="font-semibold text-blue-900 mb-2">Legal Agreement & Business Compliance</h3>
-              <p className="text-blue-700 text-sm leading-relaxed mb-3">
-                These Terms of Service constitute a legal agreement between you and aisona.tech for AI business automation services. 
-                Please read them carefully before using our Services.
-              </p>
+              <h3 className="font-semibold text-blue-900 mb-2">Legal Agreement</h3>
               <p className="text-blue-700 text-sm leading-relaxed">
-                <strong>Business Data Policy:</strong> Our AI services are designed for businesses across various industries 
-                and comply with applicable data protection regulations and industry-specific privacy standards. 
-                We maintain strict compliance with all applicable business laws and regulations.
+                These Terms constitute a legal agreement for AI business automation services. 
+                Please read carefully before using our Services.
               </p>
             </div>
           </div>
@@ -330,16 +310,16 @@ const TermsOfService = () => {
             <h3 className="text-xl font-semibold text-black">Questions About These Terms?</h3>
           </div>
           <p className="text-gray-600 mb-6">
-            If you have any questions about these Terms of Service, compliance matters, 
-            billing inquiries, or legal questions, our AI chat agent is available 24/7 to assist you.
+            Questions about these Terms, billing, or legal matters? 
+            Our AI chat agent is available 24/7 to assist you.
           </p>
           <div className="bg-white rounded-lg p-4 border border-blue-200">
             <p className="text-blue-700 font-medium mb-2">
-              💬 Chat with our AI Legal & Support Assistant
+              💬 Chat with our AI Legal Assistant
             </p>
             <p className="text-sm text-gray-600">
-              Get instant answers about terms, billing, refunds, compliance requirements, 
-              or any other legal questions related to our services.
+              Get instant answers about terms, billing, refunds, 
+              or any legal questions related to our services.
             </p>
           </div>
           <div className="mt-4 text-sm text-gray-500">

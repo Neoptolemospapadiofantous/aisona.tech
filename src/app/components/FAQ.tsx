@@ -286,12 +286,7 @@ const FAQ = () => {
             </div>
             <div className="flex-1">
               <p className="text-sm font-medium text-black mb-1">Ready to see our AI automation in action?</p>
-              <div className="flex items-center gap-2">
-                <p className="text-xs text-black">Chat with our AI agent on the bottom right to schedule your demo</p>
-                <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center animate-bounce ml-2">
-                  <ArrowRight className="w-3 h-3 text-white" />
-                </div>
-              </div>
+              <p className="text-xs text-black">Chat with our AI agent on the bottom right to schedule your demo</p>
             </div>
             <button 
               onClick={hideToast}
