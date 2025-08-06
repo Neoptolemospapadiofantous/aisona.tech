@@ -49,9 +49,9 @@ const Footer = () => {
   ];
 
   const legalLinks = [
-    { name: "Privacy", href: "/privacy" },
-    { name: "Terms", href: "/terms" },
-    { name: "Security", href: "/security" }
+    { name: "Privacy", href: "/privacy-policy" },
+    { name: "Terms", href: "/terms-policy" },
+    { name: "Security", href: "/security-policy" }
   ];
 
   return (

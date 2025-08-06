@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown, HelpCircle, Sparkles } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -16,7 +16,12 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [showToast, setShowToast] = useState(false);
+  const [progress, setProgress] = useState(100);
+  const [isClosing, setIsClosing] = useState(false);
   const pathname = usePathname();
+
+  const TOAST_DURATION = 6000;
 
   // Handle scroll effect
   useEffect(() => {
@@ -34,6 +39,23 @@ export default function Header() {
     setActiveDropdown(null);
   }, [pathname]);
 
+  // Toast timer effect
+  useEffect(() => {
+    if (showToast && !isClosing) {
+      const interval = setInterval(() => {
+        setProgress((prev) => {
+          if (prev <= 0) {
+            handleCloseToast();
+            return 0;
+          }
+          return prev - (100 / (TOAST_DURATION / 100));
+        });
+      }, 100);
+
+      return () => clearInterval(interval);
+    }
+  }, [showToast, isClosing]);
+
   const isActive = (path: string) => pathname === path;
 
   const navItems: NavItem[] = [
@@ -47,6 +69,21 @@ export default function Header() {
 
   const handleDropdownToggle = (name: string) => {
     setActiveDropdown(activeDropdown === name ? null : name);
+  };
+
+  const handleBookDemo = () => {
+    setShowToast(true);
+    setProgress(100);
+    setIsClosing(false);
+  };
+
+  const handleCloseToast = () => {
+    setIsClosing(true);
+    setTimeout(() => {
+      setShowToast(false);
+      setIsClosing(false);
+      setProgress(100);
+    }, 300);
   };
 
   return (
@@ -134,12 +171,12 @@ export default function Header() {
 
             {/* CTA Button & Mobile Menu */}
             <div className="flex items-center gap-4">
-              <Link
-                href="/demo"
+              <button
+                onClick={handleBookDemo}
                 className="hidden md:block bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl"
               >
                 Book Demo
-              </Link>
+              </button>
               
               {/* Mobile menu button */}
               <button
@@ -216,12 +253,12 @@ export default function Header() {
               
               {/* Mobile CTA */}
               <div className="pt-4 border-t border-gray-200">
-                <Link
-                  href="/demo"
-                  className="block text-center bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold py-3 px-4 rounded-lg"
+                <button
+                  onClick={handleBookDemo}
+                  className="block w-full text-center bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold py-3 px-4 rounded-lg"
                 >
                   Book Demo
-                </Link>
+                </button>
               </div>
             </nav>
           </div>
@@ -234,6 +271,60 @@ export default function Header() {
           className="fixed inset-0 bg-black bg-opacity-25 z-40 lg:hidden"
           onClick={() => setIsOpen(false)}
         />
+      )}
+
+      {/* Toast Notification */}
+      {showToast && (
+        <div 
+          className={`fixed bottom-6 left-6 right-6 md:left-6 md:right-auto md:max-w-sm z-50 transition-all duration-500 ease-out transform ${
+            isClosing 
+              ? 'translate-y-full opacity-0 scale-95' 
+              : 'translate-y-0 opacity-100 scale-100'
+          }`}
+          role="alert"
+          aria-live="polite"
+        >
+          <div 
+            className="bg-white backdrop-blur-sm border border-blue-200 rounded-2xl shadow-2xl p-5 group hover:shadow-xl transition-all duration-300 relative overflow-hidden"
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-white to-blue-50/30 rounded-2xl"></div>
+            
+            <div className="absolute top-0 left-0 h-1 bg-blue-600 rounded-t-2xl transition-all duration-100 ease-linear"
+                 style={{ width: `${progress}%` }}>
+              <div className="absolute inset-0 bg-blue-500 rounded-full animate-pulse"></div>
+            </div>
+
+            <div className="flex items-start gap-4 relative z-10">
+              <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110">
+                <HelpCircle className="w-5 h-5 text-white" />
+              </div>
+              
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2 mb-1">
+                  <h4 className="text-sm font-bold text-black group-hover:text-blue-600 transition-colors duration-200">
+                    Ready to get started?
+                  </h4>
+                  <Sparkles className="w-4 h-4 text-blue-500 animate-pulse" />
+                </div>
+                
+                <p className="text-xs text-black mb-3 leading-relaxed group-hover:text-gray-800 transition-colors duration-200">
+                  Use our AI agent in the bottom right corner to schedule your personalized demo
+                </p>
+              </div>
+              
+              <button 
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleCloseToast();
+                }}
+                className="text-gray-400 hover:text-black transition-all duration-200 hover:bg-gray-100 rounded-lg p-1 group/close"
+                aria-label="Close notification"
+              >
+                <X className="w-4 h-4 group-hover/close:scale-110 transition-transform duration-200" />
+              </button>
+            </div>
+          </div>
+        </div>
       )}
     </>
   );

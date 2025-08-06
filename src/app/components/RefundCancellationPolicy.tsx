@@ -1,18 +1,86 @@
-import { RefreshCw, Calendar, AlertCircle, XCircle, MessageSquare, Users } from 'lucide-react';
+import React from 'react';
+import { RefreshCw, Calendar, AlertCircle, XCircle, MessageSquare, Users, ExternalLink } from 'lucide-react';
 
-const RefundCancellationPolicy = () => {
+// Type definitions
+type ScenarioStatus = 'no-refund' | 'case-by-case';
+
+interface CancellationScenario {
+  scenario: string;
+  icon: React.ComponentType<{ className?: string }>;
+  timeframe: string;
+  eligibility: string;
+  process: string;
+  conditions: string[];
+  status: ScenarioStatus;
+}
+
+interface ProcessStep {
+  step: number;
+  title: string;
+  description: string;
+  details: string[];
+  isAvailable?: boolean; // Track which options actually work
+}
+
+// Status styling helper
+const getStatusStyling = (status: ScenarioStatus) => {
+  const statusMap: Record<ScenarioStatus, { class: string; icon: React.ComponentType<{ className?: string }> }> = {
+    'no-refund': { class: "bg-red-100 text-red-700 border-red-200", icon: XCircle },
+    'case-by-case': { class: "bg-blue-100 text-blue-700 border-blue-200", icon: AlertCircle }
+  };
+  return statusMap[status];
+};
+
+// Alert component for better UX
+const AlertBox: React.FC<{ 
+  type: 'warning' | 'info' | 'error'; 
+  title: string; 
+  children: React.ReactNode;
+  className?: string;
+}> = ({ type, title, children, className = '' }) => {
+  const typeStyles = {
+    warning: "bg-amber-50 border-amber-200 text-amber-900",
+    info: "bg-blue-50 border-blue-200 text-blue-900", 
+    error: "bg-red-50 border-red-200 text-red-900"
+  };
+
+  const icons = {
+    warning: AlertCircle,
+    info: AlertCircle,
+    error: XCircle
+  };
+
+  const Icon = icons[type];
+  
+  return (
+    <div className={`border rounded-lg p-6 ${typeStyles[type]} ${className}`}>
+      <div className="flex items-start gap-3">
+        <Icon className="w-5 h-5 flex-shrink-0 mt-0.5" />
+        <div className="flex-1">
+          <h3 className="font-semibold mb-2">{title}</h3>
+          {children}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const RefundCancellationPolicy: React.FC = () => {
   const lastUpdated = "December 1, 2024";
 
-  const cancellationScenarios = [
+  // If everything really goes through support, be honest about it
+  const SUPPORT_ONLY_MODE = true; // Toggle this based on your reality
+
+  const cancellationScenarios: CancellationScenario[] = [
     {
       scenario: "Monthly Subscription Cancellation",
       icon: Calendar,
       timeframe: "Anytime before next billing",
       eligibility: "No refunds - Service continues until period ends",
-      process: "Cancel via account settings or AI chat agent",
+      process: SUPPORT_ONLY_MODE ? "Contact customer support to cancel" : "Cancel via customer support or account dashboard",
       conditions: [
         "Cancel anytime before next monthly billing cycle",
-        "Service continues until current paid month ends",
+        "Service continues until current paid month ends", 
         "No refunds for current or past billing periods",
         "Future monthly charges will be stopped immediately"
       ],
@@ -23,7 +91,7 @@ const RefundCancellationPolicy = () => {
       icon: AlertCircle,
       timeframe: "Case by case",
       eligibility: "Service credits may be considered",
-      process: "Report issues immediately via chat agent",
+      process: "Report issues immediately via customer support",
       conditions: [
         "Must report within 48 hours of issue",
         "Significant service interruption documented",
@@ -33,14 +101,14 @@ const RefundCancellationPolicy = () => {
       status: "case-by-case"
     },
     {
-      scenario: "Billing Disputes",
+      scenario: "Billing Disputes", 
       icon: RefreshCw,
       timeframe: "Within 30 days",
       eligibility: "Dispute resolution only",
       process: "Contact support with billing details",
       conditions: [
         "Technical billing errors only",
-        "Must provide documentation of error",
+        "Must provide documentation of error", 
         "Resolution may include service credits",
         "No cash refunds available"
       ],
@@ -48,39 +116,47 @@ const RefundCancellationPolicy = () => {
     }
   ];
 
-  const cancellationProcess = [
+  const cancellationProcess: ProcessStep[] = [
     {
       step: 1,
       title: "Cancel Your Subscription",
       description: "Stop future billing immediately",
-      details: [
+      details: SUPPORT_ONLY_MODE ? [
+        "Contact our customer support team",
+        "Provide your account information for verification",
+        "Request subscription cancellation",
+        "Receive immediate confirmation of cancellation"
+      ] : [
         "Log into your account dashboard",
-        "Navigate to subscription settings and click 'Cancel'",
-        "Or contact our AI chat agent for immediate assistance",
+        "Navigate to subscription settings and click 'Cancel'", 
+        "Or contact our customer support for assistance",
         "Cancellation is effective immediately for future billing"
-      ]
+      ],
+      isAvailable: true
     },
     {
       step: 2,
-      title: "Confirmation & Service Continuation",
+      title: "Confirmation & Service Continuation", 
       description: "Your service continues until period ends",
       details: [
         "Email confirmation sent immediately",
         "Service continues until end of current paid month",
         "No future charges will occur",
         "Data export instructions provided"
-      ]
+      ],
+      isAvailable: true
     },
     {
       step: 3,
       title: "Use Remaining Service Time",
-      description: "Full access until your paid period expires",
+      description: "Full access until your paid period expires", 
       details: [
         "Continue using all features until month-end",
         "No service interruption during paid period",
         "Download your data and configurations before expiry",
         "Migration support available if needed"
-      ]
+      ],
+      isAvailable: true
     },
     {
       step: 4,
@@ -88,28 +164,13 @@ const RefundCancellationPolicy = () => {
       description: "Account deactivated at period end",
       details: [
         "Service access ends at last day of paid month",
-        "60-day grace period for data export",
+        "60-day grace period for data export", 
         "All data securely deleted after grace period",
         "Reactivation possible by starting new subscription"
-      ]
+      ],
+      isAvailable: true
     }
   ];
-
-  const getStatusColor = (status: string) => {
-    const statusMap = {
-      "no-refund": "bg-red-100 text-red-700 border-red-200",
-      "case-by-case": "bg-blue-100 text-blue-700 border-blue-200"
-    };
-    return statusMap[status as keyof typeof statusMap] || "bg-gray-100 text-gray-700 border-gray-200";
-  };
-
-  const getStatusIcon = (status: string) => {
-    switch(status) {
-      case "no-refund": return XCircle;
-      case "case-by-case": return AlertCircle;
-      default: return AlertCircle;
-    }
-  };
 
   return (
     <div className="min-h-screen bg-white pt-20">
@@ -130,40 +191,47 @@ const RefundCancellationPolicy = () => {
           </p>
         </div>
 
-        {/* Policy Overview */}
-        <div className="bg-red-50 border border-red-200 rounded-lg p-6 mb-12">
-          <div className="flex items-start gap-3">
-            <XCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
-            <div>
-              <h3 className="font-semibold text-red-900 mb-2">No Refunds Policy</h3>
-              <p className="text-red-700 text-sm leading-relaxed mb-4">
-                We operate a strict no-refunds policy. You can cancel your monthly subscription anytime 
-                to stop future billing, but no refunds are provided for current or previous billing periods.
-              </p>
-              <div className="grid md:grid-cols-3 gap-4 text-sm">
-                <div className="text-center">
-                  <div className="text-lg font-bold text-red-900">No Refunds</div>
-                  <div className="text-red-700">Ever Available</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-lg font-bold text-red-900">Cancel Anytime</div>
-                  <div className="text-red-700">Stop Future Billing</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-lg font-bold text-red-900">Service Continues</div>
-                  <div className="text-red-700">Until Period Ends</div>
-                </div>
-              </div>
+        {/* Honest messaging if support-only */}
+        {SUPPORT_ONLY_MODE && (
+          <AlertBox type="info" title="Cancellation Process" className="mb-8">
+            <p className="text-sm leading-relaxed">
+              Currently, all subscription cancellations are processed through our customer support team 
+              to ensure proper account handling and data preservation. While we're working on self-service 
+              options, our support team provides immediate assistance and confirmation.
+            </p>
+          </AlertBox>
+        )}
+
+        {/* No Refunds Policy */}
+        <AlertBox type="error" title="No Refunds Policy" className="mb-12">
+          <p className="text-sm leading-relaxed mb-4">
+            We operate a strict no-refunds policy. You can cancel your monthly subscription anytime 
+            to stop future billing, but no refunds are provided for current or previous billing periods.
+          </p>
+          <div className="grid md:grid-cols-3 gap-4 text-sm">
+            <div className="text-center">
+              <div className="text-lg font-bold">No Refunds</div>
+              <div className="opacity-75">Ever Available</div>
+            </div>
+            <div className="text-center">
+              <div className="text-lg font-bold">Cancel Anytime</div>
+              <div className="opacity-75">Stop Future Billing</div>
+            </div>
+            <div className="text-center">
+              <div className="text-lg font-bold">Service Continues</div>
+              <div className="opacity-75">Until Period Ends</div>
             </div>
           </div>
-        </div>
+        </AlertBox>
 
         {/* Cancellation Scenarios */}
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-black mb-6">Cancellation Options</h2>
           <div className="space-y-6">
             {cancellationScenarios.map((scenario, index) => {
-              const StatusIcon = getStatusIcon(scenario.status);
+              const styling = getStatusStyling(scenario.status);
+              const StatusIcon = styling.icon;
+              
               return (
                 <div key={index} className="bg-white border border-gray-200 rounded-lg p-6">
                   <div className="flex items-start justify-between mb-4">
@@ -176,7 +244,7 @@ const RefundCancellationPolicy = () => {
                         <p className="text-sm text-gray-600">{scenario.timeframe}</p>
                       </div>
                     </div>
-                    <span className={`px-3 py-1 rounded-full text-sm font-medium border flex items-center gap-1 ${getStatusColor(scenario.status)}`}>
+                    <span className={`px-3 py-1 rounded-full text-sm font-medium border flex items-center gap-1 ${styling.class}`}>
                       <StatusIcon className="w-4 h-4" />
                       {scenario.eligibility}
                     </span>
@@ -233,35 +301,23 @@ const RefundCancellationPolicy = () => {
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-black mb-6">Important Information</h2>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-red-50 border border-red-200 rounded-lg p-6">
-              <div className="flex items-start gap-3">
-                <XCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
-                <div>
-                  <h3 className="font-semibold text-red-900 mb-2">No Refunds Available</h3>
-                  <ul className="text-red-700 text-sm space-y-1">
-                    <li>• No refunds for any billing periods</li>
-                    <li>• No partial month refunds</li>
-                    <li>• No refunds for unused service time</li>
-                    <li>• Policy applies to all subscription types</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+            <AlertBox type="error" title="No Refunds Available">
+              <ul className="text-sm space-y-1">
+                <li>• No refunds for any billing periods</li>
+                <li>• No partial month refunds</li>
+                <li>• No refunds for unused service time</li>
+                <li>• Policy applies to all subscription types</li>
+              </ul>
+            </AlertBox>
 
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
-              <div className="flex items-start gap-3">
-                <Users className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                <div>
-                  <h3 className="font-semibold text-blue-900 mb-2">What You Get</h3>
-                  <ul className="text-blue-700 text-sm space-y-1">
-                    <li>• Service until end of paid period</li>
-                    <li>• Complete data export assistance</li>
-                    <li>• 60-day data access after service ends</li>
-                    <li>• Zero cancellation fees</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+            <AlertBox type="info" title="What You Get">
+              <ul className="text-sm space-y-1">
+                <li>• Service until end of paid period</li>
+                <li>• Complete data export assistance</li>
+                <li>• 60-day data access after service ends</li>
+                <li>• Zero cancellation fees</li>
+              </ul>
+            </AlertBox>
           </div>
         </section>
 
@@ -272,12 +328,14 @@ const RefundCancellationPolicy = () => {
             <h3 className="text-xl font-semibold text-black">Need to Cancel Your Subscription?</h3>
           </div>
           <p className="text-gray-600 mb-6">
-            Our AI chat agent is available 24/7 to help with subscription cancellations 
-            or any questions about our cancellation policy.
+            {SUPPORT_ONLY_MODE 
+              ? "Contact our customer support team for immediate assistance with subscription cancellation."
+              : "Our AI chat agent is available 24/7 to help with subscription cancellations or any questions about our cancellation policy."
+            }
           </p>
           <div className="bg-white rounded-lg p-4 border border-blue-200">
             <p className="text-blue-700 font-medium mb-2">
-              💬 Chat with our AI Billing Assistant
+              💬 {SUPPORT_ONLY_MODE ? "Contact Customer Support" : "Chat with our AI Billing Assistant"}
             </p>
             <p className="text-sm text-gray-600">
               Get instant help with subscription cancellation, billing questions, 
