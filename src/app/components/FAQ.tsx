@@ -125,18 +125,18 @@ const FAQ = () => {
   return (
     <section 
       id="faq-section" 
-      className="relative py-20 bg-white overflow-hidden"
+      className="relative py-12 sm:py-20 bg-white overflow-hidden"
     >
       {/* Background Elements */}
       <div className="absolute inset-0">
         {/* Floating Orbs */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-blue-100 to-blue-200 rounded-full opacity-30 animate-pulse" />
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 sm:w-96 sm:h-96 bg-gradient-to-r from-blue-100 to-blue-200 rounded-full opacity-30 animate-pulse" />
         <div 
-          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-blue-200 to-blue-300 rounded-full opacity-30 animate-pulse"
+          className="absolute bottom-1/4 right-1/4 w-64 h-64 sm:w-96 sm:h-96 bg-gradient-to-r from-blue-200 to-blue-300 rounded-full opacity-30 animate-pulse"
           style={{ animationDelay: '2s' }}
         />
         <div 
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-gray-100 to-blue-100 rounded-full opacity-20 animate-pulse"
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 sm:w-[600px] sm:h-[600px] bg-gradient-to-r from-gray-100 to-blue-100 rounded-full opacity-20 animate-pulse"
           style={{ animationDelay: '4s' }}
         />
 
@@ -152,25 +152,29 @@ const FAQ = () => {
           }}
         />
 
-        {/* Particles - Only render after hydration */}
-        {particlesReady && particleData.map((particle, i) => (
-          <div
-            key={i}
-            className="absolute w-1 h-1 bg-blue-400 rounded-full opacity-70 animate-bounce"
-            style={{
-              left: `${particle.left}%`,
-              top: `${particle.top}%`,
-              animationDelay: `${particle.delay}s`,
-              animationDuration: `${particle.duration}s`
-            }}
-          />
-        ))}
+        {/* Particles - Only render after hydration and hide on mobile for performance */}
+        {particlesReady && (
+          <div className="hidden sm:block">
+            {particleData.map((particle, i) => (
+              <div
+                key={i}
+                className="absolute w-1 h-1 bg-blue-400 rounded-full opacity-70 animate-bounce"
+                style={{
+                  left: `${particle.left}%`,
+                  top: `${particle.top}%`,
+                  animationDelay: `${particle.delay}s`,
+                  animationDuration: `${particle.duration}s`
+                }}
+              />
+            ))}
+          </div>
+        )}
       </div>
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <h2 className="text-4xl md:text-6xl font-bold mb-6">
+        <div className={`text-center mb-12 sm:mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 sm:mb-6">
             <span className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
               Got Questions?
             </span>
@@ -178,20 +182,20 @@ const FAQ = () => {
             <span className="text-black">We Have Answers</span>
           </h2>
           
-          <p className="text-xl text-black max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl text-black max-w-3xl mx-auto leading-relaxed">
             Find answers to common questions about our AI business automation services, 
             data security and compliance, and how we can help transform your business operations and customer experience.
           </p>
         </div>
 
         {/* FAQ Categories */}
-        <div className={`flex flex-wrap justify-center gap-4 mb-12 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div className={`flex flex-wrap justify-center gap-2 sm:gap-4 mb-8 sm:mb-12 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           {categories.map((category, index) => (
             <div
               key={index}
-              className="flex items-center gap-2 bg-white border border-blue-200 rounded-full px-4 py-2 hover:bg-blue-50 hover:border-blue-300 transition-all duration-300 cursor-pointer shadow-sm hover:shadow-lg hover:scale-105"
+              className="flex items-center gap-2 bg-white border border-blue-200 rounded-full px-3 sm:px-4 py-2 hover:bg-blue-50 hover:border-blue-300 transition-all duration-300 cursor-pointer shadow-sm hover:shadow-lg hover:scale-105"
             >
-              <span className="text-sm text-black font-medium">{category.name}</span>
+              <span className="text-xs sm:text-sm text-black font-medium">{category.name}</span>
               <span className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full">
                 {category.count}
               </span>
@@ -200,7 +204,7 @@ const FAQ = () => {
         </div>
 
         {/* FAQ Items */}
-        <div className="space-y-4">
+        <div className="space-y-3 sm:space-y-4">
           {faqs.map((faq, index) => {
             const isOpen = openItems.includes(index);
             return (
@@ -213,11 +217,11 @@ const FAQ = () => {
               >
                 <button
                   onClick={() => toggleItem(index)}
-                  className="w-full p-6 text-left flex items-center justify-between hover:bg-blue-50/50 transition-colors duration-300 rounded-xl"
+                  className="w-full p-4 sm:p-6 text-left flex items-center justify-between hover:bg-blue-50/50 transition-colors duration-300 rounded-xl min-h-[64px] sm:min-h-[auto]"
                   aria-expanded={isOpen}
                   aria-controls={`faq-answer-${index}`}
                 >
-                  <h3 className="text-lg font-semibold text-black pr-4">
+                  <h3 className="text-base sm:text-lg font-semibold text-black pr-3 sm:pr-4">
                     {faq.question}
                   </h3>
                   <div className={`flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 border border-blue-200 flex items-center justify-center transition-all duration-300 ${
@@ -237,9 +241,9 @@ const FAQ = () => {
                     isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                   }`}
                 >
-                  <div className="px-6 pb-6">
-                    <div className="h-px bg-blue-200 mb-4"></div>
-                    <p className="text-black leading-relaxed">
+                  <div className="px-4 sm:px-6 pb-4 sm:pb-6">
+                    <div className="h-px bg-blue-200 mb-3 sm:mb-4"></div>
+                    <p className="text-black leading-relaxed text-sm sm:text-base">
                       {faq.answer}
                     </p>
                   </div>
@@ -250,25 +254,25 @@ const FAQ = () => {
         </div>
 
         {/* Contact CTA */}
-        <div className={`text-center mt-16 transition-all duration-1000 delay-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="bg-white border border-blue-200 rounded-xl shadow-lg p-8 hover:shadow-xl hover:scale-105 transition-all duration-300">
-            <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
+        <div className={`text-center mt-12 sm:mt-16 transition-all duration-1000 delay-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className="bg-white border border-blue-200 rounded-xl shadow-lg p-6 sm:p-8 hover:shadow-xl hover:scale-105 transition-all duration-300">
+            <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
               Let&apos;s Talk About Your Business Project
             </h3>
-            <p className="text-black mb-8 max-w-2xl mx-auto">
+            <p className="text-black mb-6 sm:mb-8 max-w-2xl mx-auto text-sm sm:text-base">
               Our AI experts are ready to discuss your specific business automation needs, 
               compliance requirements, and provide personalized recommendations for transforming your operations and customer experience.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
               <button 
                 onClick={handleScheduleDemo}
-                className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 hover:scale-105"
+                className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 hover:scale-105 min-h-[48px] flex items-center justify-center"
               >
                 Schedule Demo
               </button>
               <Link 
                 href="/contact"
-                className="bg-white border border-blue-300 hover:border-blue-400 text-black hover:text-blue-700 font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 hover:scale-105 text-center no-underline"
+                className="bg-white border border-blue-300 hover:border-blue-400 text-black hover:text-blue-700 font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 hover:scale-105 text-center no-underline min-h-[48px] flex items-center justify-center"
               >
                 Contact Support
               </Link>
@@ -279,7 +283,7 @@ const FAQ = () => {
 
       {/* Fixed Toast Notification */}
       {showToast && (
-        <div className="fixed bottom-4 left-4 bg-white border border-blue-300 rounded-lg shadow-2xl p-4 max-w-sm z-50 transition-all duration-300 ease-in-out">
+        <div className="fixed bottom-4 left-4 right-4 sm:left-4 sm:right-auto sm:max-w-sm bg-white border border-blue-300 rounded-lg shadow-2xl p-4 z-50 transition-all duration-300 ease-in-out">
           <div className="flex items-start gap-3">
             <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
               <HelpCircle className="w-4 h-4 text-blue-600" />
@@ -290,7 +294,8 @@ const FAQ = () => {
             </div>
             <button 
               onClick={hideToast}
-              className="text-black hover:text-blue-700 transition-colors duration-200"
+              className="text-black hover:text-blue-700 transition-colors duration-200 p-1 rounded hover:bg-gray-100 min-w-[32px] min-h-[32px] flex items-center justify-center"
+              aria-label="Close notification"
             >
               <X className="w-4 h-4" />
             </button>

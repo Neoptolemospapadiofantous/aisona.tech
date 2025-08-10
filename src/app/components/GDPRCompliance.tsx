@@ -147,46 +147,46 @@ const GDPRCompliance = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white pt-20">
-      <div className="max-w-4xl mx-auto px-4 py-12">
+    <div className="min-h-screen bg-white pt-16 sm:pt-20">
+      <div className="max-w-4xl mx-auto px-4 py-8 sm:py-12">
         {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-black">
+        <div className="text-center mb-8 sm:mb-12">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 text-black">
             GDPR Compliance
           </h1>
           
-          <div className="text-sm text-gray-600 mb-6">
+          <div className="text-sm text-gray-600 mb-4 sm:mb-6">
             <strong>Last Updated:</strong> {lastUpdated}
           </div>
 
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto">
             aisona.tech is committed to full compliance with GDPR and protecting 
             the privacy rights of all individuals in the European Union.
           </p>
         </div>
 
         {/* GDPR Overview */}
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-12">
-          <div className="flex items-start gap-3">
+        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 sm:p-6 mb-8 sm:mb-12">
+          <div className="flex flex-col sm:flex-row items-start gap-3">
             <Globe className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
             <div>
               <h3 className="font-semibold text-blue-900 mb-2">Our GDPR Commitment</h3>
-              <p className="text-blue-700 text-sm leading-relaxed mb-4">
+              <p className="text-blue-700 text-sm leading-relaxed mb-3 sm:mb-4">
                 We have implemented comprehensive measures to ensure full compliance with GDPR 
                 for all personal data processing activities related to our AI services.
               </p>
-              <div className="grid md:grid-cols-3 gap-4 text-sm">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 text-sm">
                 <div className="text-center">
                   <div className="text-lg font-bold text-blue-900">100%</div>
-                  <div className="text-blue-700">GDPR Compliant</div>
+                  <div className="text-blue-700 text-xs">GDPR Compliant</div>
                 </div>
                 <div className="text-center">
                   <div className="text-lg font-bold text-blue-900">30 Days</div>
-                  <div className="text-blue-700">Response Time</div>
+                  <div className="text-blue-700 text-xs">Response Time</div>
                 </div>
                 <div className="text-center">
                   <div className="text-lg font-bold text-blue-900">24/7</div>
-                  <div className="text-blue-700">Data Protection</div>
+                  <div className="text-blue-700 text-xs">Data Protection</div>
                 </div>
               </div>
             </div>
@@ -194,18 +194,18 @@ const GDPRCompliance = () => {
         </div>
 
         {/* GDPR Principles */}
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold text-black mb-6">GDPR Principles</h2>
-          <div className="space-y-6">
+        <section className="mb-8 sm:mb-12">
+          <h2 className="text-xl sm:text-2xl font-bold text-black mb-4 sm:mb-6">GDPR Principles</h2>
+          <div className="space-y-4 sm:space-y-6">
             {gdprPrinciples.map((principle, index) => (
-              <div key={index} className="bg-white border border-gray-200 rounded-lg p-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <principle.icon className="w-6 h-6 text-blue-600" />
+              <div key={index} className="bg-white border border-gray-200 rounded-lg p-4 sm:p-6">
+                <div className="flex flex-col sm:flex-row items-start gap-3 sm:gap-4">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <principle.icon className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-lg font-semibold text-black mb-2">{principle.principle}</h3>
-                    <p className="text-gray-600 mb-4">{principle.description}</p>
+                    <h3 className="text-base sm:text-lg font-semibold text-black mb-2">{principle.principle}</h3>
+                    <p className="text-gray-600 mb-3 sm:mb-4 text-sm sm:text-base">{principle.description}</p>
                     <div>
                       <h4 className="font-medium text-gray-900 mb-2">Implementation:</h4>
                       <ul className="space-y-1">
@@ -225,21 +225,21 @@ const GDPRCompliance = () => {
         </section>
 
         {/* Data Subject Rights */}
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold text-black mb-6">Your Rights Under GDPR</h2>
-          <p className="text-gray-600 mb-6">
+        <section className="mb-8 sm:mb-12">
+          <h2 className="text-xl sm:text-2xl font-bold text-black mb-4 sm:mb-6">Your Rights Under GDPR</h2>
+          <p className="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base">
             As a data subject, you have specific rights regarding your personal data:
           </p>
           
-          <div className="grid gap-4">
+          <div className="grid gap-3 sm:gap-4">
             {dataSubjectRights.map((right, index) => (
-              <div key={index} className="bg-gray-50 border border-gray-200 rounded-lg p-4">
-                <div className="flex items-start justify-between">
+              <div key={index} className="bg-gray-50 border border-gray-200 rounded-lg p-3 sm:p-4">
+                <div className="flex flex-col sm:flex-row items-start justify-between gap-3">
                   <div className="flex items-center gap-3">
-                    <right.icon className="w-5 h-5 text-blue-600" />
+                    <right.icon className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600" />
                     <div>
-                      <h3 className="font-semibold text-black">{right.right}</h3>
-                      <p className="text-sm text-gray-600">{right.description}</p>
+                      <h3 className="font-semibold text-black text-sm sm:text-base">{right.right}</h3>
+                      <p className="text-xs sm:text-sm text-gray-600">{right.description}</p>
                     </div>
                   </div>
                   <span className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full">
@@ -247,7 +247,7 @@ const GDPRCompliance = () => {
                   </span>
                 </div>
                 
-                <div className="mt-3 grid md:grid-cols-2 gap-4 text-xs text-gray-600">
+                <div className="mt-2 sm:mt-3 grid sm:grid-cols-2 gap-2 sm:gap-4 text-xs text-gray-600">
                   <div>
                     <strong>Process:</strong> {right.process}
                   </div>
@@ -259,8 +259,8 @@ const GDPRCompliance = () => {
             ))}
           </div>
 
-          <div className="mt-6 bg-blue-50 border border-blue-200 rounded-lg p-4">
-            <div className="flex items-start gap-3">
+          <div className="mt-4 sm:mt-6 bg-blue-50 border border-blue-200 rounded-lg p-4">
+            <div className="flex flex-col sm:flex-row items-start gap-3">
               <AlertCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
               <div>
                 <h4 className="font-semibold text-blue-900 mb-1">Exercise Your Rights</h4>
@@ -274,17 +274,17 @@ const GDPRCompliance = () => {
         </section>
 
         {/* Legal Basis */}
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold text-black mb-6">Legal Basis for Processing</h2>
-          <p className="text-gray-600 mb-6">
+        <section className="mb-8 sm:mb-12">
+          <h2 className="text-xl sm:text-2xl font-bold text-black mb-4 sm:mb-6">Legal Basis for Processing</h2>
+          <p className="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base">
             Under GDPR, we must have a legal basis for processing personal data:
           </p>
           
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid lg:grid-cols-2 gap-4 sm:gap-6">
             {legalBases.map((basis, index) => (
-              <div key={index} className="bg-white border border-gray-200 rounded-lg p-6">
-                <h3 className="text-lg font-semibold text-black mb-2">{basis.basis}</h3>
-                <p className="text-gray-600 mb-4">{basis.description}</p>
+              <div key={index} className="bg-white border border-gray-200 rounded-lg p-4 sm:p-6">
+                <h3 className="text-base sm:text-lg font-semibold text-black mb-2">{basis.basis}</h3>
+                <p className="text-gray-600 mb-3 sm:mb-4 text-sm sm:text-base">{basis.description}</p>
                 <div>
                   <h4 className="font-medium text-gray-900 mb-2">Examples:</h4>
                   <ul className="space-y-1">
@@ -302,15 +302,15 @@ const GDPRCompliance = () => {
         </section>
 
         {/* Data Transfers */}
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold text-black mb-6">International Data Transfers</h2>
-          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
-            <p className="text-gray-600 mb-4">
+        <section className="mb-8 sm:mb-12">
+          <h2 className="text-xl sm:text-2xl font-bold text-black mb-4 sm:mb-6">International Data Transfers</h2>
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 sm:p-6">
+            <p className="text-gray-600 mb-3 sm:mb-4 text-sm sm:text-base">
               Our services may require transferring data outside the EEA. We ensure adequate protection through:
             </p>
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid lg:grid-cols-2 gap-4 sm:gap-6">
               <div>
-                <h4 className="font-semibold text-black mb-3">Safeguards:</h4>
+                <h4 className="font-semibold text-black mb-2 sm:mb-3">Safeguards:</h4>
                 <ul className="space-y-2 text-sm text-gray-600">
                   <li>• Standard Contractual Clauses</li>
                   <li>• Adequacy decisions</li>
@@ -319,7 +319,7 @@ const GDPRCompliance = () => {
                 </ul>
               </div>
               <div>
-                <h4 className="font-semibold text-black mb-3">Recipients:</h4>
+                <h4 className="font-semibold text-black mb-2 sm:mb-3">Recipients:</h4>
                 <ul className="space-y-2 text-sm text-gray-600">
                   <li>• Cloud providers</li>
                   <li>• Payment processors</li>
@@ -332,14 +332,14 @@ const GDPRCompliance = () => {
         </section>
 
         {/* Data Breach */}
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold text-black mb-6">Data Breach Response</h2>
-          <div className="bg-red-50 border border-red-200 rounded-lg p-6">
-            <div className="flex items-start gap-3">
+        <section className="mb-8 sm:mb-12">
+          <h2 className="text-xl sm:text-2xl font-bold text-black mb-4 sm:mb-6">Data Breach Response</h2>
+          <div className="bg-red-50 border border-red-200 rounded-lg p-4 sm:p-6">
+            <div className="flex flex-col sm:flex-row items-start gap-3">
               <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
               <div>
                 <h3 className="font-semibold text-red-900 mb-2">Our Response Process</h3>
-                <div className="grid md:grid-cols-3 gap-6 text-sm">
+                <div className="grid sm:grid-cols-3 gap-4 sm:gap-6 text-sm">
                   <div>
                     <h4 className="font-medium text-red-900 mb-2">Detection</h4>
                     <ul className="space-y-1 text-red-700">
@@ -371,25 +371,25 @@ const GDPRCompliance = () => {
         </section>
 
         {/* Contact Information */}
-        <div className="bg-blue-50 rounded-lg p-8 text-center border border-blue-200">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <MessageSquare className="w-8 h-8 text-blue-600" />
-            <h3 className="text-xl font-semibold text-black">GDPR Questions?</h3>
+        <div className="bg-blue-50 rounded-lg p-6 sm:p-8 text-center border border-blue-200">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+            <MessageSquare className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />
+            <h3 className="text-lg sm:text-xl font-semibold text-black">GDPR Questions?</h3>
           </div>
-          <p className="text-gray-600 mb-6">
+          <p className="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base">
             For GDPR-related questions, data requests, or to exercise privacy rights, 
             our AI chat agent is available 24/7.
           </p>
-          <div className="bg-white rounded-lg p-4 border border-blue-200">
-            <p className="text-blue-700 font-medium mb-2">
+          <div className="bg-white rounded-lg p-3 sm:p-4 border border-blue-200">
+            <p className="text-blue-700 font-medium mb-2 text-sm sm:text-base">
               💬 Chat with our AI GDPR Assistant
             </p>
-            <p className="text-sm text-gray-600">
+            <p className="text-xs sm:text-sm text-gray-600">
               Get instant help with data requests, GDPR questions, 
               deletion requests, or privacy concerns.
             </p>
           </div>
-          <div className="mt-4 text-sm text-gray-500">
+          <div className="mt-3 sm:mt-4 text-xs sm:text-sm text-gray-500">
             <p><strong>Business Address:</strong> 37 Evagora Palikaridi, Limassol, Cyprus</p>
             <p><strong>Phone:</strong> +357 (97) 888-064</p>
           </div>

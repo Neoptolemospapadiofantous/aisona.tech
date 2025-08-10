@@ -96,19 +96,16 @@ export default function Header() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-4">
-          <div className="flex justify-between items-center h-16">
+          <div className="flex justify-between items-center h-14 sm:h-16">
             {/* Logo */}
             <Link href="/" className="flex items-center space-x-2 group">
-              <div className="w-10 h-10 rounded-xl overflow-hidden shadow-lg group-hover:shadow-xl transition-shadow">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl overflow-hidden shadow-lg group-hover:shadow-xl transition-shadow">
                 <img 
                   src="/logo.png" 
                   alt="aisona.tech logo" 
                   className="w-full h-full object-contain"
                 />
               </div>
-              {/* <span className="text-2xl font-bold text-black group-hover:text-blue-600 transition-colors">
-                sona.tech
-              </span> */}
             </Link>
 
             {/* Desktop Navigation */}
@@ -117,7 +114,7 @@ export default function Header() {
                 <div key={item.name} className="relative group">
                   {item.children ? (
                     <button
-                      className={`flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
+                      className={`flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
                         item.children.some(child => isActive(child.path))
                           ? 'text-blue-700 bg-blue-50 border border-blue-200'
                           : 'text-gray-600 hover:text-black hover:bg-gray-50'
@@ -130,7 +127,7 @@ export default function Header() {
                   ) : (
                     <Link
                       href={item.path}
-                      className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
+                      className={`px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
                         isActive(item.path)
                           ? 'text-blue-700 bg-blue-50 border border-blue-200'
                           : 'text-gray-600 hover:text-black hover:bg-gray-50'
@@ -170,10 +167,10 @@ export default function Header() {
             </nav>
 
             {/* CTA Button & Mobile Menu */}
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2 sm:gap-4">
               <button
                 onClick={handleBookDemo}
-                className="hidden md:block bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl"
+                className="hidden sm:block bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white font-semibold py-2 px-3 sm:px-4 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl text-sm min-h-[40px]"
               >
                 Book Demo
               </button>
@@ -181,11 +178,11 @@ export default function Header() {
               {/* Mobile menu button */}
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="lg:hidden text-gray-600 hover:text-black focus:outline-none focus:text-black p-2"
+                className="lg:hidden text-gray-600 hover:text-black focus:outline-none focus:text-black p-2 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg hover:bg-gray-100 transition-colors"
                 aria-label={isOpen ? 'Close menu' : 'Open menu'}
                 aria-expanded={isOpen}
               >
-                {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                {isOpen ? <X className="h-5 w-5 sm:h-6 sm:w-6" /> : <Menu className="h-5 w-5 sm:h-6 sm:w-6" />}
               </button>
             </div>
           </div>
@@ -203,7 +200,7 @@ export default function Header() {
                     <div>
                       <button
                         onClick={() => handleDropdownToggle(item.name)}
-                        className={`w-full flex items-center justify-between px-4 py-3 rounded-lg text-base font-medium transition-all duration-300 ${
+                        className={`w-full flex items-center justify-between px-3 py-3 rounded-lg text-base font-medium transition-all duration-300 min-h-[48px] ${
                           item.children.some(child => isActive(child.path))
                             ? 'text-blue-700 bg-blue-50 border border-blue-200'
                             : 'text-gray-600 hover:text-black hover:bg-gray-50'
@@ -225,7 +222,7 @@ export default function Header() {
                           <Link
                             key={child.path}
                             href={child.path}
-                            className={`block px-4 py-2 rounded-lg text-sm transition-all duration-300 ${
+                            className={`block px-3 py-2 rounded-lg text-sm transition-all duration-300 min-h-[44px] flex items-center ${
                               isActive(child.path)
                                 ? 'text-blue-700 bg-blue-50'
                                 : 'text-gray-600 hover:text-black hover:bg-gray-50'
@@ -239,7 +236,7 @@ export default function Header() {
                   ) : (
                     <Link
                       href={item.path}
-                      className={`block px-4 py-3 rounded-lg text-base font-medium transition-all duration-300 ${
+                      className={`block px-3 py-3 rounded-lg text-base font-medium transition-all duration-300 min-h-[48px] flex items-center ${
                         isActive(item.path)
                           ? 'text-blue-700 bg-blue-50 border border-blue-200'
                           : 'text-gray-600 hover:text-black hover:bg-gray-50'
@@ -255,7 +252,7 @@ export default function Header() {
               <div className="pt-4 border-t border-gray-200">
                 <button
                   onClick={handleBookDemo}
-                  className="block w-full text-center bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold py-3 px-4 rounded-lg"
+                  className="block w-full text-center bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold py-3 px-4 rounded-lg min-h-[48px]"
                 >
                   Book Demo
                 </button>
@@ -276,7 +273,7 @@ export default function Header() {
       {/* Toast Notification */}
       {showToast && (
         <div 
-          className={`fixed bottom-6 left-6 right-6 md:left-6 md:right-auto md:max-w-sm z-50 transition-all duration-500 ease-out transform ${
+          className={`fixed bottom-4 left-4 right-4 sm:left-6 sm:right-auto sm:max-w-sm z-50 transition-all duration-500 ease-out transform ${
             isClosing 
               ? 'translate-y-full opacity-0 scale-95' 
               : 'translate-y-0 opacity-100 scale-100'
@@ -285,7 +282,7 @@ export default function Header() {
           aria-live="polite"
         >
           <div 
-            className="bg-white backdrop-blur-sm border border-blue-200 rounded-2xl shadow-2xl p-5 group hover:shadow-xl transition-all duration-300 relative overflow-hidden"
+            className="bg-white backdrop-blur-sm border border-blue-200 rounded-2xl shadow-2xl p-4 sm:p-5 group hover:shadow-xl transition-all duration-300 relative overflow-hidden"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-white to-blue-50/30 rounded-2xl"></div>
             
@@ -294,20 +291,20 @@ export default function Header() {
               <div className="absolute inset-0 bg-blue-500 rounded-full animate-pulse"></div>
             </div>
 
-            <div className="flex items-start gap-4 relative z-10">
-              <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110">
-                <HelpCircle className="w-5 h-5 text-white" />
+            <div className="flex items-start gap-3 sm:gap-4 relative z-10">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-blue-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110">
+                <HelpCircle className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
               </div>
               
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 mb-1">
-                  <h4 className="text-sm font-bold text-black group-hover:text-blue-600 transition-colors duration-200">
+                  <h4 className="text-xs sm:text-sm font-bold text-black group-hover:text-blue-600 transition-colors duration-200">
                     Ready to get started?
                   </h4>
-                  <Sparkles className="w-4 h-4 text-blue-500 animate-pulse" />
+                  <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-blue-500 animate-pulse" />
                 </div>
                 
-                <p className="text-xs text-black mb-3 leading-relaxed group-hover:text-gray-800 transition-colors duration-200">
+                <p className="text-xs text-black mb-2 sm:mb-3 leading-relaxed group-hover:text-gray-800 transition-colors duration-200">
                   Use our AI agent in the bottom right corner to schedule your personalized demo
                 </p>
               </div>
@@ -317,7 +314,7 @@ export default function Header() {
                   e.stopPropagation();
                   handleCloseToast();
                 }}
-                className="text-gray-400 hover:text-black transition-all duration-200 hover:bg-gray-100 rounded-lg p-1 group/close"
+                className="text-gray-400 hover:text-black transition-all duration-200 hover:bg-gray-100 rounded-lg p-1 group/close min-w-[32px] min-h-[32px] flex items-center justify-center"
                 aria-label="Close notification"
               >
                 <X className="w-4 h-4 group-hover/close:scale-110 transition-transform duration-200" />

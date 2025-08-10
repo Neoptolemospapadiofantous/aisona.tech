@@ -48,62 +48,56 @@ const Footer = () => {
     { name: "24/7 Support", description: "Always here to help" }
   ];
 
-  const legalLinks = [
-    { name: "Privacy", href: "/privacy-policy" },
-    { name: "Terms", href: "/terms-policy" },
-    { name: "Security", href: "/security-policy" }
-  ];
-
   return (
     <footer className="bg-white border-t border-gray-200 relative overflow-hidden">
       {/* Professional Background Elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-50/30 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-50/20 rounded-full blur-3xl"></div>
+        <div className="absolute top-0 left-1/4 w-64 h-64 sm:w-96 sm:h-96 bg-blue-50/30 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-1/4 w-64 h-64 sm:w-96 sm:h-96 bg-blue-50/20 rounded-full blur-3xl"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 relative z-10">
         {/* Trust Badges Section */}
-        <div className="py-12 border-b border-gray-200">
-          <div className="grid md:grid-cols-4 gap-6">
+        <div className="py-8 sm:py-12 border-b border-gray-200">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
             {trustBadges.map((badge, index) => (
               <div key={index} className="text-center">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-blue-100 to-blue-200 border border-blue-200 flex items-center justify-center mx-auto mb-3">
-                  <Sparkles className="w-6 h-6 text-blue-600" />
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-r from-blue-100 to-blue-200 border border-blue-200 flex items-center justify-center mx-auto mb-2 sm:mb-3">
+                  <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600" />
                 </div>
-                <h4 className="font-semibold text-black mb-1">{badge.name}</h4>
-                <p className="text-sm text-gray-600">{badge.description}</p>
+                <h4 className="font-semibold text-black mb-1 text-sm sm:text-base">{badge.name}</h4>
+                <p className="text-xs sm:text-sm text-gray-600">{badge.description}</p>
               </div>
             ))}
           </div>
         </div>
 
         {/* Main Footer Content */}
-        <div className="py-16">
-          <div className="grid lg:grid-cols-4 gap-12">
+        <div className="py-12 sm:py-16">
+          <div className="grid lg:grid-cols-4 gap-8 sm:gap-12">
             {/* Brand Section */}
             <div className="lg:col-span-2">
               {/* Logo */}
-            <Link href="/" className="flex items-center gap-3 mb-6 hover:opacity-80 transition-opacity">
-              <div className="w-10 h-10 rounded-xl overflow-hidden shadow-lg">
-                <img 
-                  src="/logo.png" 
-                  alt="aisona.tech logo" 
-                  className="w-full h-full object-contain"
-                />
-              </div>
-              <span className="text-2xl font-bold text-black">
-                aisona.tech
-              </span>
-            </Link>
+              <Link href="/" className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6 hover:opacity-80 transition-opacity">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl overflow-hidden shadow-lg">
+                  <img 
+                    src="/logo.png" 
+                    alt="aisona.tech logo" 
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                <span className="text-xl sm:text-2xl font-bold text-black">
+                  aisona.tech
+                </span>
+              </Link>
 
-              <p className="text-gray-600 mb-8 leading-relaxed max-w-md">
+              <p className="text-gray-600 mb-6 sm:mb-8 leading-relaxed max-w-md text-sm sm:text-base">
                 Empowering businesses with cutting-edge AI technology. Transform your operations 
                 with our comprehensive suite of artificial intelligence services and solutions.
               </p>
 
               {/* Contact Info */}
-              <div className="space-y-4 mb-8">
+              <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
                 {contactInfo.map((contact, index) => {
                   const IconComponent = contact.icon;
                   return (
@@ -112,12 +106,12 @@ const Footer = () => {
                       href={contact.href}
                       target={contact.external ? "_blank" : undefined}
                       rel={contact.external ? "noopener noreferrer" : undefined}
-                      className="flex items-center gap-3 text-gray-600 hover:text-blue-600 transition-colors duration-300 group"
+                      className="flex items-center gap-2 sm:gap-3 text-gray-600 hover:text-blue-600 transition-colors duration-300 group p-2 rounded-lg hover:bg-gray-50 min-h-[44px]"
                     >
-                      <div className="w-8 h-8 rounded-lg bg-gray-100 border border-gray-200 flex items-center justify-center group-hover:bg-blue-50 group-hover:border-blue-200 transition-all duration-300">
-                        <IconComponent className="w-4 h-4 group-hover:text-blue-600 transition-colors" />
+                      <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-gray-100 border border-gray-200 flex items-center justify-center group-hover:bg-blue-50 group-hover:border-blue-200 transition-all duration-300">
+                        <IconComponent className="w-3 h-3 sm:w-4 sm:h-4 group-hover:text-blue-600 transition-colors" />
                       </div>
-                      <span className="font-medium">{contact.text}</span>
+                      <span className="font-medium text-sm sm:text-base">{contact.text}</span>
                     </a>
                   );
                 })}
@@ -126,16 +120,16 @@ const Footer = () => {
 
             {/* Footer Links */}
             <div className="lg:col-span-2">
-              <div className="grid md:grid-cols-2 gap-8">
+              <div className="grid sm:grid-cols-2 gap-6 sm:gap-8">
                 {footerSections.map((section, index) => (
                   <div key={index}>
-                    <h3 className="text-black font-semibold mb-4">{section.title}</h3>
-                    <ul className="space-y-3">
+                    <h3 className="text-black font-semibold mb-3 sm:mb-4 text-base sm:text-lg">{section.title}</h3>
+                    <ul className="space-y-2 sm:space-y-3">
                       {section.links.map((link, linkIndex) => (
                         <li key={linkIndex}>
                           <Link
                             href={link.href}
-                            className="text-gray-600 hover:text-blue-600 transition-colors duration-300 text-sm font-medium"
+                            className="text-gray-600 hover:text-blue-600 transition-colors duration-300 text-sm font-medium block py-1 rounded hover:bg-gray-50 px-2 -mx-2 min-h-[36px] flex items-center"
                           >
                             {link.name}
                           </Link>
@@ -150,18 +144,18 @@ const Footer = () => {
         </div>
 
         {/* AI Assistant Contact Section */}
-        <div className="py-8 border-t border-gray-200">
-          <div className="bg-blue-50 rounded-lg p-6 border border-blue-200 text-center mb-8">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <MessageSquare className="w-6 h-6 text-blue-600" />
-              <h3 className="text-lg font-semibold text-black">Need Help? Chat with Our AI Assistant</h3>
+        <div className="py-6 sm:py-8 border-t border-gray-200">
+          <div className="bg-blue-50 rounded-lg p-4 sm:p-6 border border-blue-200 text-center mb-6 sm:mb-8">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+              <MessageSquare className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600" />
+              <h3 className="text-base sm:text-lg font-semibold text-black">Need Help? Chat with Our AI Assistant</h3>
             </div>
-            <p className="text-gray-600 mb-4">
+            <p className="text-gray-600 mb-3 sm:mb-4 text-sm sm:text-base">
               Our AI-powered chat agent is available 24/7 to answer questions about our services, 
               pricing, technical support, legal matters, and more.
             </p>
             <div className="bg-white rounded-lg p-3 border border-blue-200">
-              <p className="text-blue-700 font-medium text-sm">
+              <p className="text-blue-700 font-medium text-xs sm:text-sm">
                 💬 Get instant answers to all your questions - no waiting for email responses!
               </p>
             </div>
@@ -169,23 +163,11 @@ const Footer = () => {
         </div>
 
         {/* Bottom Footer */}
-        <div className="py-8 border-t border-gray-200">
+        <div className="py-6 sm:py-8 border-t border-gray-200">
           <div className="flex justify-center items-center">
-            <div className="text-gray-600 text-sm text-center">
+            <div className="text-gray-600 text-xs sm:text-sm text-center">
               © {currentYear} aisona.tech. All rights reserved.
             </div>
-            
-            {/* <div className="flex items-center gap-6 text-sm">
-              {legalLinks.map((link, index) => (
-                <Link 
-                  key={index}
-                  href={link.href} 
-                  className="text-gray-600 hover:text-blue-600 transition-colors font-medium"
-                >
-                  {link.name}
-                </Link>
-              ))}
-            </div> */}
           </div>
         </div>
       </div>

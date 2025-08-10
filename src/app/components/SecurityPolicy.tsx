@@ -175,50 +175,50 @@ const SecurityPolicy = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white pt-20">
-      <div className="max-w-4xl mx-auto px-4 py-12">
+    <div className="min-h-screen bg-white pt-16 sm:pt-20">
+      <div className="max-w-4xl mx-auto px-4 py-8 sm:py-12">
         {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-black">
+        <div className="text-center mb-8 sm:mb-12">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 text-black">
             Security & Compliance
           </h1>
           
-          <div className="text-sm text-gray-600 mb-6">
+          <div className="text-sm text-gray-600 mb-4 sm:mb-6">
             <strong>Last Updated:</strong> {lastUpdated}
           </div>
 
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto">
             Enterprise-grade security measures protecting your data and ensuring 
             compliance with industry standards.
           </p>
         </div>
 
         {/* Security Commitment */}
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-12">
-          <div className="flex items-start gap-3">
+        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 sm:p-6 mb-8 sm:mb-12">
+          <div className="flex flex-col sm:flex-row items-start gap-3">
             <Shield className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
             <div>
               <h3 className="font-semibold text-blue-900 mb-2">Our Security Commitment</h3>
-              <p className="text-blue-700 text-sm leading-relaxed mb-4">
+              <p className="text-blue-700 text-sm leading-relaxed mb-3 sm:mb-4">
                 Security is fundamental to everything we do. We implement defense-in-depth strategies, 
                 maintain industry certifications, and continuously monitor for threats.
               </p>
-              <div className="grid md:grid-cols-4 gap-4 text-sm">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 text-sm">
                 <div className="text-center">
                   <div className="text-lg font-bold text-blue-900">99.99%</div>
-                  <div className="text-blue-700">Uptime SLA</div>
+                  <div className="text-blue-700 text-xs">Uptime SLA</div>
                 </div>
                 <div className="text-center">
                   <div className="text-lg font-bold text-blue-900">24/7</div>
-                  <div className="text-blue-700">Monitoring</div>
+                  <div className="text-blue-700 text-xs">Monitoring</div>
                 </div>
                 <div className="text-center">
                   <div className="text-lg font-bold text-blue-900">SOC 2</div>
-                  <div className="text-blue-700">Certified</div>
+                  <div className="text-blue-700 text-xs">Certified</div>
                 </div>
                 <div className="text-center">
                   <div className="text-lg font-bold text-blue-900">Zero</div>
-                  <div className="text-blue-700">Data Breaches</div>
+                  <div className="text-blue-700 text-xs">Data Breaches</div>
                 </div>
               </div>
             </div>
@@ -226,18 +226,18 @@ const SecurityPolicy = () => {
         </div>
 
         {/* Security Frameworks */}
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold text-black mb-6">Security Certifications</h2>
-          <div className="grid md:grid-cols-2 gap-6">
+        <section className="mb-8 sm:mb-12">
+          <h2 className="text-xl sm:text-2xl font-bold text-black mb-4 sm:mb-6">Security Certifications</h2>
+          <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
             {securityFrameworks.map((framework, index) => (
-              <div key={index} className="bg-white border border-gray-200 rounded-lg p-6">
-                <div className="flex items-start justify-between mb-4">
+              <div key={index} className="bg-white border border-gray-200 rounded-lg p-4 sm:p-6">
+                <div className="flex flex-col sm:flex-row items-start justify-between mb-3 sm:mb-4 gap-3">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
-                      <framework.icon className="w-5 h-5 text-blue-600" />
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                      <framework.icon className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-black">{framework.framework}</h3>
+                      <h3 className="font-semibold text-black text-sm sm:text-base">{framework.framework}</h3>
                     </div>
                   </div>
                   <span className={`px-2 py-1 rounded-full text-xs font-medium border ${getStatusColor(framework.status)}`}>
@@ -251,22 +251,22 @@ const SecurityPolicy = () => {
         </section>
 
         {/* Security Measures */}
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold text-black mb-6">Security Measures</h2>
-          <div className="space-y-8">
+        <section className="mb-8 sm:mb-12">
+          <h2 className="text-xl sm:text-2xl font-bold text-black mb-4 sm:mb-6">Security Measures</h2>
+          <div className="space-y-6 sm:space-y-8">
             {securityMeasures.map((category, index) => (
-              <div key={index} className="bg-gray-50 rounded-lg p-6">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
-                    <category.icon className="w-5 h-5 text-blue-600" />
+              <div key={index} className="bg-gray-50 rounded-lg p-4 sm:p-6">
+                <div className="flex items-center gap-3 mb-4 sm:mb-6">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                    <category.icon className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600" />
                   </div>
-                  <h3 className="text-xl font-semibold text-black">{category.category}</h3>
+                  <h3 className="text-lg sm:text-xl font-semibold text-black">{category.category}</h3>
                 </div>
-                <div className="grid md:grid-cols-2 gap-4">
+                <div className="grid lg:grid-cols-2 gap-3 sm:gap-4">
                   {category.measures.map((measure, idx) => (
-                    <div key={idx} className="bg-white border border-gray-200 rounded-lg p-4">
-                      <h4 className="font-semibold text-black mb-2">{measure.name}</h4>
-                      <p className="text-gray-600 text-sm mb-3">{measure.description}</p>
+                    <div key={idx} className="bg-white border border-gray-200 rounded-lg p-3 sm:p-4">
+                      <h4 className="font-semibold text-black mb-2 text-sm sm:text-base">{measure.name}</h4>
+                      <p className="text-gray-600 text-sm mb-2 sm:mb-3">{measure.description}</p>
                       <div className="text-xs text-blue-600 bg-blue-50 rounded px-2 py-1">
                         {measure.implementation}
                       </div>
@@ -279,22 +279,22 @@ const SecurityPolicy = () => {
         </section>
 
         {/* Compliance Standards */}
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold text-black mb-6">Compliance Standards</h2>
-          <div className="space-y-4">
+        <section className="mb-8 sm:mb-12">
+          <h2 className="text-xl sm:text-2xl font-bold text-black mb-4 sm:mb-6">Compliance Standards</h2>
+          <div className="space-y-3 sm:space-y-4">
             {complianceStandards.map((standard, index) => (
-              <div key={index} className="bg-white border border-gray-200 rounded-lg p-6">
-                <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-lg font-semibold text-black">{standard.standard}</h3>
-                  <span className={`px-3 py-1 rounded-full text-sm font-medium border ${getStatusColor(standard.status)}`}>
-                    <CheckCircle className="w-4 h-4 inline mr-1" />
+              <div key={index} className="bg-white border border-gray-200 rounded-lg p-4 sm:p-6">
+                <div className="flex flex-col sm:flex-row items-start justify-between mb-3 sm:mb-4 gap-3">
+                  <h3 className="text-base sm:text-lg font-semibold text-black">{standard.standard}</h3>
+                  <span className={`px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium border ${getStatusColor(standard.status)} flex items-center gap-1`}>
+                    <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4" />
                     {standard.status}
                   </span>
                 </div>
-                <div className="grid md:grid-cols-3 gap-4">
+                <div className="grid sm:grid-cols-3 gap-3 sm:gap-4">
                   {standard.requirements.map((req, idx) => (
                     <div key={idx} className="flex items-center gap-2 text-sm text-gray-600">
-                      <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+                      <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-green-500 flex-shrink-0" />
                       {req}
                     </div>
                   ))}
@@ -305,18 +305,18 @@ const SecurityPolicy = () => {
         </section>
 
         {/* Incident Response */}
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold text-black mb-6">Incident Response</h2>
-          <div className="bg-red-50 border border-red-200 rounded-lg p-6">
-            <div className="flex items-start gap-3">
+        <section className="mb-8 sm:mb-12">
+          <h2 className="text-xl sm:text-2xl font-bold text-black mb-4 sm:mb-6">Incident Response</h2>
+          <div className="bg-red-50 border border-red-200 rounded-lg p-4 sm:p-6">
+            <div className="flex flex-col sm:flex-row items-start gap-3">
               <AlertTriangle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
               <div>
                 <h3 className="font-semibold text-red-900 mb-2">24/7 Incident Response</h3>
-                <p className="text-red-700 text-sm mb-4">
+                <p className="text-red-700 text-sm mb-3 sm:mb-4">
                   Our security team maintains round-the-clock monitoring with documented procedures 
                   for rapid response to security incidents.
                 </p>
-                <div className="grid md:grid-cols-3 gap-4 text-sm">
+                <div className="grid sm:grid-cols-3 gap-3 sm:gap-4 text-sm">
                   <div>
                     <h4 className="font-medium text-red-900 mb-2">Detection</h4>
                     <ul className="space-y-1 text-red-700">
@@ -348,18 +348,18 @@ const SecurityPolicy = () => {
         </section>
 
         {/* Responsible Disclosure */}
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold text-black mb-6">Security Research</h2>
-          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
-            <div className="flex items-start gap-3">
+        <section className="mb-8 sm:mb-12">
+          <h2 className="text-xl sm:text-2xl font-bold text-black mb-4 sm:mb-6">Security Research</h2>
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 sm:p-6">
+            <div className="flex flex-col sm:flex-row items-start gap-3">
               <Eye className="w-5 h-5 text-gray-600 flex-shrink-0 mt-0.5" />
               <div>
                 <h3 className="font-semibold text-gray-900 mb-2">Responsible Disclosure</h3>
-                <p className="text-gray-600 mb-4">
+                <p className="text-gray-600 mb-3 sm:mb-4 text-sm sm:text-base">
                   We welcome security researchers to help maintain the highest security standards. 
                   Please report vulnerabilities responsibly.
                 </p>
-                <div className="grid md:grid-cols-2 gap-6 text-sm">
+                <div className="grid lg:grid-cols-2 gap-4 sm:gap-6 text-sm">
                   <div>
                     <h4 className="font-medium text-gray-900 mb-2">Reporting:</h4>
                     <ul className="space-y-1 text-gray-600">
@@ -385,25 +385,25 @@ const SecurityPolicy = () => {
         </section>
 
         {/* Contact Information */}
-        <div className="bg-blue-50 rounded-lg p-8 text-center border border-blue-200">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <MessageSquare className="w-8 h-8 text-blue-600" />
-            <h3 className="text-xl font-semibold text-black">Security Questions?</h3>
+        <div className="bg-blue-50 rounded-lg p-6 sm:p-8 text-center border border-blue-200">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+            <MessageSquare className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />
+            <h3 className="text-lg sm:text-xl font-semibold text-black">Security Questions?</h3>
           </div>
-          <p className="text-gray-600 mb-6">
+          <p className="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base">
             Our AI chat agent is available 24/7 to address security questions, 
             report issues, or handle security-related concerns.
           </p>
-          <div className="bg-white rounded-lg p-4 border border-blue-200">
-            <p className="text-blue-700 font-medium mb-2">
+          <div className="bg-white rounded-lg p-3 sm:p-4 border border-blue-200">
+            <p className="text-blue-700 font-medium mb-2 text-sm sm:text-base">
               💬 Chat with our AI Security Assistant
             </p>
-            <p className="text-sm text-gray-600">
+            <p className="text-xs sm:text-sm text-gray-600">
               Get information about security practices, report vulnerabilities, 
               or ask compliance questions.
             </p>
           </div>
-          <div className="mt-4 text-sm text-gray-500">
+          <div className="mt-3 sm:mt-4 text-xs sm:text-sm text-gray-500">
             <p><strong>Business Address:</strong> 37 Evagora Palikaridi, Limassol, Cyprus</p>
             <p><strong>Phone:</strong> +357 (97) 888-064</p>
           </div>

@@ -81,7 +81,7 @@ const TermsOfService = () => {
           </div>
 
           <div className="bg-red-50 border border-red-200 rounded-lg p-4">
-            <div className="flex items-start gap-3">
+            <div className="flex flex-col sm:flex-row items-start gap-3">
               <AlertTriangle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
               <div>
                 <p className="text-red-700 font-semibold mb-1">Compliance Violations</p>
@@ -239,23 +239,23 @@ const TermsOfService = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white pt-20">
-      <div className="max-w-4xl mx-auto px-4 py-12">
+    <div className="min-h-screen bg-white pt-16 sm:pt-20">
+      <div className="max-w-4xl mx-auto px-4 py-8 sm:py-12">
         {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-black">
+        <div className="text-center mb-8 sm:mb-12">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 text-black">
             Terms of Service
           </h1>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center text-sm text-gray-600">
+          <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 justify-center text-sm text-gray-600">
             <span><strong>Effective Date:</strong> {effectiveDate}</span>
             <span><strong>Last Updated:</strong> {lastUpdated}</span>
           </div>
         </div>
 
         {/* Legal Notice */}
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-8">
-          <div className="flex items-start gap-3">
+        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 sm:p-6 mb-6 sm:mb-8">
+          <div className="flex flex-col sm:flex-row items-start gap-3">
             <Scale className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
             <div>
               <h3 className="font-semibold text-blue-900 mb-2">Legal Agreement</h3>
@@ -268,9 +268,9 @@ const TermsOfService = () => {
         </div>
 
         {/* Table of Contents */}
-        <div className="bg-gray-50 rounded-lg p-6 mb-8">
-          <h3 className="text-lg font-semibold text-black mb-4">Table of Contents</h3>
-          <div className="grid md:grid-cols-2 gap-2">
+        <div className="bg-gray-50 rounded-lg p-4 sm:p-6 mb-6 sm:mb-8">
+          <h3 className="text-base sm:text-lg font-semibold text-black mb-3 sm:mb-4">Table of Contents</h3>
+          <div className="grid sm:grid-cols-2 gap-2">
             {sections.map((section, index) => (
               <a
                 key={section.id}
@@ -285,18 +285,18 @@ const TermsOfService = () => {
         </div>
 
         {/* Sections */}
-        <div className="space-y-12">
+        <div className="space-y-8 sm:space-y-12">
           {sections.map((section, index) => (
             <section key={section.id} id={section.id} className="scroll-mt-24">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
-                  <section.icon className="w-5 h-5 text-blue-600" />
+              <div className="flex flex-col sm:flex-row items-start gap-2 sm:gap-3 mb-4 sm:mb-6">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                  <section.icon className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600" />
                 </div>
-                <h2 className="text-2xl font-bold text-black">
+                <h2 className="text-xl sm:text-2xl font-bold text-black">
                   {index + 1}. {section.title}
                 </h2>
               </div>
-              <div className="prose max-w-none">
+              <div className="prose max-w-none text-sm sm:text-base">
                 {section.content}
               </div>
             </section>
@@ -304,25 +304,25 @@ const TermsOfService = () => {
         </div>
 
         {/* Contact Information */}
-        <div className="mt-16 bg-blue-50 rounded-lg p-8 text-center border border-blue-200">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <MessageSquare className="w-8 h-8 text-blue-600" />
-            <h3 className="text-xl font-semibold text-black">Questions About These Terms?</h3>
+        <div className="mt-12 sm:mt-16 bg-blue-50 rounded-lg p-6 sm:p-8 text-center border border-blue-200">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+            <MessageSquare className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />
+            <h3 className="text-lg sm:text-xl font-semibold text-black">Questions About These Terms?</h3>
           </div>
-          <p className="text-gray-600 mb-6">
+          <p className="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base">
             Questions about these Terms, billing, or legal matters? 
             Our AI chat agent is available 24/7 to assist you.
           </p>
-          <div className="bg-white rounded-lg p-4 border border-blue-200">
-            <p className="text-blue-700 font-medium mb-2">
+          <div className="bg-white rounded-lg p-3 sm:p-4 border border-blue-200">
+            <p className="text-blue-700 font-medium mb-2 text-sm sm:text-base">
               💬 Chat with our AI Legal Assistant
             </p>
-            <p className="text-sm text-gray-600">
+            <p className="text-xs sm:text-sm text-gray-600">
               Get instant answers about terms, billing, refunds, 
               or any legal questions related to our services.
             </p>
           </div>
-          <div className="mt-4 text-sm text-gray-500">
+          <div className="mt-3 sm:mt-4 text-xs sm:text-sm text-gray-500">
             <p><strong>Business Address:</strong> 37 Evagora Palikaridi, Limassol, Cyprus</p>
             <p><strong>Phone:</strong> +357 (97) 888-064</p>
           </div>
